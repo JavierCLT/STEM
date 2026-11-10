@@ -23,8 +23,8 @@ export default defineConfig({
       name: 'Archivo',
       cssVariable: '--font-archivo',
       fallbacks: ['Arial', 'Helvetica', 'sans-serif'],
-      // Preloaded; 'optional' means a late font never forces a re-layout (no shift, no long task).
-      display: 'optional',
+      // Preloaded and swapped in: brand type on the first visit; metric-matched fallback keeps the shift small.
+      display: 'swap',
       options: {
         variants: [
           {
