@@ -1,0 +1,160 @@
+---
+import { Font } from 'astro:assets';
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { SITE, VOLUMES } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path of this page, e.g. "/books/" (canonical is built from it). */
+  path: string;
+  /** Social image path under /og/. */
+  image?: string;
+  imageAlt?: string;
+  jsonld?: object;
+  noindex?: boolean;
+  vol?: number;
+  ogType?: 'website' | 'book' | 'article';
+}
+const { title, description, path, image = '/og/home.jpg', imageAlt = 'The seven Famous in STEM books by Javier Sanz', jsonld, noindex = false, vol, ogType = 'website' } = Astro.props;
+const canonical = new URL(path, SITE.url).href;
+const ogImage = new URL(image, SITE.url).href;
+const current = Astro.url.pathname;
+const nav = [
+  { href: '/books/', label: 'The books' },
+  { href: '/people/', label: 'Who’s inside' },
+  { href: '/gift-guide/', label: 'Gift guide' },
+  { href: '/for-teachers/', label: 'For teachers' },
+  { href: '/about/', label: 'About' },
+];
+const isCurrent = (href: string) => (current === href || (href !== '/' && current.startsWith(href)) ? 'page' : undefined);
+---
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
+    <meta name="author" content={SITE.author} />
+    <meta name="theme-color" content="#0f152d" />
+    <meta name="color-scheme" content="light" />
+    <meta name="format-detection" content="telephone=no" />
+    <Font cssVariable="--font-archivo" preload />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable summary of this site" />
+    <link rel="preconnect" href="https://www.amazon.com" crossorigin />
+
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:locale" content="en_US" />
+    {ogType === 'book' && <meta property="book:author" content={SITE.author} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />}
+    <script type="speculationrules" is:inline>
+      {"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"selector_matches":"[rel~=external]"}}]},"eagerness":"moderate"}]}
+    </script>
+  </head>
+  <body data-vol={vol}>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="wordmark" href="/" aria-label="Famous in STEM home">
+          <img src="/favicon.svg" alt="" width="30" height="30" />
+          Famous in STEM
+        </a>
+        <nav class="nav" aria-label="Main">
+          {nav.map((n) => <a href={n.href} aria-current={isCurrent(n.href)}>{n.label}</a>)}
+          <a class="btn btn-sm" href={SITE.seriesPage} rel="external" data-asin="B0CBN56CKM" style="--accent:var(--v1)">Shop on Amazon</a>
+        </nav>
+        <button class="menu-btn" type="button" popovertarget="menu" aria-label="Open menu"><Icon name="menu" class="i" /> Menu</button>
+      </div>
+      <div class="spectrum-rule" aria-hidden="true"></div>
+    </header>
+    <div id="menu" class="menu-panel" popover>
+      <button class="close" type="button" popovertarget="menu" popovertargetaction="hide">Close</button>
+      <nav aria-label="Mobile">
+        <a href="/">Home</a>
+        {nav.map((n) => <a href={n.href} aria-current={isCurrent(n.href)}>{n.label}</a>)}
+      </nav>
+      <div class="vols">
+        {VOLUMES.map((v) => <a href={v.url} data-vol={v.n}><i></i>Vol. {v.n} · {v.title}</a>)}
+      </div>
+      <p style="margin-top:1.25rem"><a class="btn btn-block" href={SITE.seriesPage} rel="external" data-asin="B0CBN56CKM" style="--accent:var(--v1)">Shop the series on Amazon</a></p>
+    </div>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="spectrum-rule" aria-hidden="true"></div>
+      <div class="wrap footer-grid">
+        <div>
+          <a class="wordmark" href="/" style="color:#fff"><img src="/favicon.svg" alt="" width="30" height="30" />Famous in STEM</a>
+          <p style="margin-top:1rem;max-width:34ch">True stories of the people behind science, technology, engineering and math. Seven books by {SITE.author}, for readers 13 and up.</p>
+        </div>
+        <div>
+          <h2>The books</h2>
+          <ul>{VOLUMES.map((v) => <li data-vol={v.n}><a href={v.url}><span class="dot"></span>{v.title}</a></li>)}</ul>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="/people/">All {VOLUMES.reduce((s, v) => s + v.peopleCount, 0)} people</a></li>
+            <li><a href="/gift-guide/">Which book to give</a></li>
+            <li><a href="/for-teachers/">For teachers and homeschool</a></li>
+            <li><a href="/about/">About the series and author</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>On Amazon</h2>
+          <ul>
+            <li><a href={SITE.seriesPage} rel="external" data-asin="B0CBN56CKM">The series page</a></li>
+            <li><a href={SITE.authorStore} rel="external">Javier Sanz’s author page</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-base">
+        <span>© 2026 {SITE.author}. All rights reserved. Excerpts are from the 2026 editions.</span>
+        <span><a href="/privacy/">Privacy</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></span>
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Send visitors outside the US to their own Amazon store (same ASIN). Only rewrites product links.
+      (function () {
+        var stores = { GB: 'co.uk', IE: 'co.uk', CA: 'ca', AU: 'com.au', NZ: 'com.au', DE: 'de', AT: 'de' };
+        var langs = navigator.languages || [navigator.language || ''];
+        var tld = null;
+        for (var i = 0; i < langs.length && !tld; i++) {
+          var r = (String(langs[i]).split('-')[1] || '').toUpperCase();
+          if (r === 'US') return;
+          tld = stores[r] || null;
+        }
+        if (!tld) return;
+        var links = document.querySelectorAll('a[href^="https://www.amazon.com/dp/"]');
+        for (var j = 0; j < links.length; j++) links[j].href = links[j].href.replace('https://www.amazon.com/', 'https://www.amazon.' + tld + '/');
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "_readme": "Which parts of each book the site shows. Everything listed here is copied word for word from the chapter Markdown by scripts/extract-content.mjs and counted by scripts/excerpt-audit.mjs against KDP Select's 10% limit. opening = the first N paragraphs of that chapter (subheads between them come along). boxes = chapter-file#k (k-th box in that chapter). hooks = the first sentence of each chapter. figures = figure slots (chapter-file-k).",
+  "1": {
+    "introParagraphs": 1,
+    "opening": { "chapter": "03-curie", "paragraphs": 4 },
+    "boxes": ["05-bernoulli#1", "07-faraday#1"],
+    "hooks": ["09-hawking", "04-einstein", "14-feynman", "21-oppenheimer"],
+    "figures": ["13-rutherford-1"]
+  },
+  "2": {
+    "introParagraphs": 1,
+    "opening": { "chapter": "03-turing", "paragraphs": 4 },
+    "boxes": ["01-gauss#1", "17-leibniz#1"],
+    "hooks": ["15-johnson", "11-ramanujan", "05-erdos", "18-lovelace"],
+    "figures": ["03-turing-1"]
+  },
+  "3": {
+    "introParagraphs": 1,
+    "opening": { "chapter": "01-jobs", "paragraphs": 4 },
+    "boxes": ["07-berners-lee#1", "05-mitnick#1"],
+    "hooks": ["08-hopper", "15-musk", "06-torvalds", "02-gates"],
+    "figures": ["15-musk-1"]
+  },
+  "4": {
+    "introParagraphs": 1,
+    "opening": { "chapter": "01-nobel", "paragraphs": 4 },
+    "boxes": ["05-baeyer#1", "22-kwolek#1"],
+    "hooks": ["12-julian", "07-franklin", "16-elion", "23-cavendish"],
+    "figures": ["07-franklin-1"]
+  },
+  "5": {
+    "introParagraphs": 1,
+    "opening": { "chapter": "01-darwin", "paragraphs": 3 },
+    "boxes": ["02-mendel#1", "01-darwin#1"],
+    "hooks": ["03-goodall", "18-anning", "09-leeuwenhoek", "19-watson-crick"],
+    "figures": ["10-wilson-1"]
+  },
+  "6": {
+    "introParagraphs": 1,
+    "opening": { "chapter": "13-semmelweis", "paragraphs": 4 },
+    "boxes": ["09-harvey#1", "08-apgar#1"],
+    "hooks": ["01-fleming", "15-taussig", "04-salk", "03-nightingale"],
+    "figures": ["10-vesalius-1"]
+  },
+  "7": {
+    "introParagraphs": 1,
+    "opening": { "chapter": "01-ik-brunel", "paragraphs": 4 },
+    "boxes": ["04-khan#1", "06-von-braun#1"],
+    "hooks": ["05-roebling", "09-korolev", "08-gilbreth", "16-woods"],
+    "figures": ["05-roebling-1"]
+  }
+}

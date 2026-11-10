@@ -1,0 +1,20 @@
+---
+import Cover from './Cover.astro';
+import Icon from './Icon.astro';
+import { SITE, VOLUMES, TOTALS } from '../data/site';
+---
+<article class="book-card series-card">
+  <div class="shelf-bg">
+    <div class="stack" aria-hidden="true">
+      {VOLUMES.map((v) => <Cover vol={v} sizes="64px" widths={[64, 128]} alt="" />)}
+    </div>
+  </div>
+  <div class="body">
+    <p class="vol" style="color:var(--v1)">The complete series</p>
+    <h3>All seven books</h3>
+    <p class="tag">{TOTALS.people} people, {TOTALS.chapters} chapters, from physics to engineering. A shelf that covers all of STEM.</p>
+    <div class="actions">
+      <a class="btn btn-sm" href={SITE.seriesPage} rel="external" data-asin="B0CBN56CKM" style="--accent:var(--v1)"><Icon name="cart" />Series on Amazon</a>
+    </div>
+  </div>
+</article>

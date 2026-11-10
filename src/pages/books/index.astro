@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cover from '../../components/Cover.astro';
+import BuyButtons from '../../components/BuyButtons.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { SITE, VOLUMES, TOTALS } from '../../data/site';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, ID } from '../../lib/schema';
+
+const title = 'The Famous in STEM Books: All Seven Volumes Compared';
+const description = `Compare the seven Famous in STEM books: physics, mathematics, computing, chemistry, biology, medicine and engineering. ${TOTALS.people} people in ${TOTALS.chapters} short, true chapters.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'The books', url: '/books/' }];
+const jsonld = graph(
+  websiteNode(),
+  authorNode(),
+  seriesNode(),
+  breadcrumbNode(crumbs),
+  webPageNode('/books/', title, description, {
+    '@type': 'CollectionPage',
+    about: { '@id': ID.series },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: VOLUMES.length,
+      itemListElement: VOLUMES.map((v) => ({ '@type': 'ListItem', position: v.n, url: new URL(v.url, SITE.url).href, name: v.fullTitle })),
+    },
+  }),
+);
+---
+<Base title={title} description={description} path="/books/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v3)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">The books</span></li></ol></nav>
+      <p class="kicker">The series</p>
+      <h1 id="t" style="max-width:18ch">Seven books, seven corners of STEM.</h1>
+      <p class="lede">Each volume tells the true stories of 20 to 27 people from one field, in short chapters that explain the science in plain words. They can be read in any order.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <ol class="compare" style="list-style:none;padding:0;margin:0">
+        {VOLUMES.map((v) => (
+          <li class="row" data-vol={v.n} id={v.slug}>
+            <a href={v.url} class="row-cover" aria-label={`${v.title}: look inside`}>
+              <Cover vol={v} sizes="(max-width: 700px) 120px, 170px" widths={[120, 170, 240, 340]} transition />
+            </a>
+            <div class="row-body">
+              <p class="kicker">Volume {v.n} · {v.field}</p>
+              <h2><a href={v.url}>{v.title}</a></h2>
+              <p class="row-tag">{v.tagline}</p>
+              <p>{v.hook}</p>
+              <dl>
+                <div><dt>Inside</dt><dd>{v.chapters} chapters{v.peopleCount !== v.chapters ? `, ${v.peopleCount} people` : ''}</dd></div>
+                <div><dt>Great for</dt><dd>{v.interest}</dd></div>
+                <div><dt>Includes</dt><dd>{v.people.slice(0, 6).map((p) => p.name).join(', ')} and more</dd></div>
+              </dl>
+              <div class="btn-row">
+                <BuyButtons vol={v} size="sm" on="light" />
+                <a class="more" href={v.url}>Look inside <Icon name="arrow" /></a>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand title="Not sure where to start?" text="Use the gift guide to match a book to an interest, or browse every person in the series." />
+</Base>
+
+<style>
+  .compare { display: grid; gap: 1.25rem; }
+  .row { display: grid; grid-template-columns: 170px 1fr; gap: clamp(1.25rem, 3vw, 2.5rem); padding: clamp(1.25rem, 2vw, 2rem); border-radius: var(--radius); background: var(--card); border: 1px solid var(--line-light); box-shadow: var(--shadow-card); border-left: 6px solid var(--accent); }
+  .row h2 { font-size: var(--step-3); margin-bottom: 0.2rem; }
+  .row h2 a { text-decoration: none; }
+  .row-tag { color: var(--accent-ink); font-weight: 700; font-size: var(--step-1); margin-bottom: 0.75rem; }
+  dl { display: grid; gap: 0.35rem; margin: 0 0 1.25rem; font-size: 0.95rem; }
+  dl div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.75rem; }
+  dt { font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); padding-top: 0.2rem; }
+  dd { margin: 0; color: var(--ink-2); }
+  .more { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 750; color: var(--accent-ink); text-decoration: none; }
+  .more svg { width: 1rem; height: 1rem; }
+  @media (max-width: 700px) {
+    .row { grid-template-columns: 1fr; }
+    .row-cover { width: 120px; }
+    dl div { grid-template-columns: 1fr; gap: 0; }
+  }
+</style>

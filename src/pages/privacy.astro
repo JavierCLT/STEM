@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { graph, websiteNode, webPageNode } from '../lib/schema';
+const title = 'Privacy | Famous in STEM';
+const description = 'This site sets no cookies, runs no analytics or ads, and collects no personal information.';
+---
+<Base title={title} description={description} path="/privacy/" jsonld={graph(websiteNode(), webPageNode('/privacy/', title, description))}>
+  <section class="section">
+    <div class="wrap-narrow prose">
+      <p class="kicker">Privacy</p>
+      <h1 class="h-section">Privacy</h1>
+      <p>This website sets no cookies, runs no analytics, advertising or tracking scripts, and has no forms. It does not collect personal information.</p>
+      <p>The site is hosted on GitHub Pages. Like any web server, GitHub may log technical data such as IP addresses to keep the service secure; see GitHub’s privacy statement for details.</p>
+      <p>Links marked “on Amazon” take you to Amazon, which has its own privacy policy. If your browser’s language is set to the UK, Ireland, Canada, Australia, New Zealand, Germany or Austria, product links point to your local Amazon store; this happens in your browser and nothing is stored.</p>
+      <p>Last updated: November 2026.</p>
+    </div>
+  </section>
+</Base>

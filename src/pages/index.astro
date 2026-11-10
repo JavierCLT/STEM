@@ -1,0 +1,256 @@
+---
+import Base from '../layouts/Base.astro';
+import Cover from '../components/Cover.astro';
+import BookCard from '../components/BookCard.astro';
+import SeriesCard from '../components/SeriesCard.astro';
+import Hook from '../components/Hook.astro';
+import Activity from '../components/Activity.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import BuyButtons from '../components/BuyButtons.astro';
+import { SITE, VOLUMES, TOTALS, PEOPLE, SERIES_FAQ } from '../data/site';
+import { graph, websiteNode, authorNode, seriesNode, webPageNode, faqNode, ID } from '../lib/schema';
+
+const byN = (n: number) => VOLUMES.find((v) => v.n === n)!;
+const shelf = [6, 4, 2, 1, 3, 5, 7].map(byN);
+const illustrations = VOLUMES.reduce((s, v) => s + v.totals.figures, 0);
+const curie = byN(1);
+const curiePerson = curie.people.find((p) => p.slug === curie.opening.person)!;
+const activities = [
+  { vol: byN(1), box: byN(1).boxes[0] },
+  { vol: byN(4), box: byN(4).boxes[0] },
+  { vol: byN(2), box: byN(2).boxes[0] },
+];
+
+const title = 'Famous in STEM: True Stories of Great Scientists for Teens';
+const description = `Seven books, ${TOTALS.chapters} true stories: the physicists, mathematicians, coders, chemists, biologists, doctors and engineers who changed the world. For readers 13 and up.`;
+const jsonld = graph(
+  websiteNode(),
+  authorNode(),
+  seriesNode(new URL('/og/home.jpg', SITE.url).href),
+  webPageNode('/', title, description, { about: { '@id': ID.series }, primaryImageOfPage: new URL('/og/home.jpg', SITE.url).href }),
+  faqNode(SERIES_FAQ),
+);
+---
+<Base title={title} description={description} path="/" jsonld={jsonld}>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker" style="--accent:var(--v1)">7 books · True stories · Ages 13+</p>
+        <h1 id="hero-title">Meet the people who <span class="hl">figured out how everything works.</span></h1>
+        <p class="lede">
+          {TOTALS.chapters} short, true stories of the physicists, mathematicians, coders, chemists, biologists, doctors and engineers who changed the world. Each one opens like a novel and explains the science in plain words.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href={SITE.seriesPage} rel="external" data-asin="B0CBN56CKM" style="--accent:var(--v1)"><Icon name="cart" />Shop the series on Amazon</a>
+          <a class="btn btn-ghost" href="#books">Find the right book <Icon name="arrow" /></a>
+        </div>
+        <ul class="trust">
+          <li><Icon name="check" />Read in any order</li>
+          <li><Icon name="check" />Paperback and Kindle</li>
+          <li><Icon name="check" />Fact-checked 2026 editions</li>
+        </ul>
+      </div>
+      <div class="shelf" aria-label="The seven Famous in STEM books">
+        {shelf.map((v, i) => (
+          <a href={v.url} data-vol={v.n} aria-label={`Volume ${v.n}: ${v.title}`}>
+            <Cover vol={v} sizes="(max-width: 900px) 150px, 222px" widths={[150, 222, 300, 444]} eager={i >= 1 && i <= 5} transition />
+          </a>
+        ))}
+      </div>
+    </div>
+    <div class="stats" role="list">
+      <div role="listitem"><b>7</b><span>books, one per field</span></div>
+      <div role="listitem"><b>{TOTALS.chapters}</b><span>true stories</span></div>
+      <div role="listitem"><b>{TOTALS.people}</b><span>scientists, inventors and healers</span></div>
+      <div role="listitem"><b>{illustrations}</b><span>illustrations of the science</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="books" aria-labelledby="books-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">The series</p>
+          <h2 id="books-title" class="h-section">Seven books. Pick the field they love.</h2>
+          <p class="lede">Every volume stands on its own: 20 to 27 people, one field, one short chapter each. Start anywhere.</p>
+        </div>
+        <a class="btn btn-ink btn-sm" href="/books/">Compare all seven <Icon name="arrow" /></a>
+      </div>
+      <div class="book-grid">
+        {VOLUMES.map((v) => <BookCard vol={v} />)}
+        <SeriesCard />
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" aria-labelledby="hooks-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker" style="--accent:var(--v3)">First lines</p>
+          <h2 id="hooks-title" class="h-section">Every chapter opens like a story.</h2>
+          <p class="lede">Chapters start in the middle of a real moment, then tells you who was there and why it mattered. These are real first lines from the books.</p>
+        </div>
+      </div>
+      <div class="hooks">
+        {VOLUMES.map((v) => <Hook vol={v} hook={v.hooks[0]} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="inside-title">
+    <div class="wrap anatomy">
+      <div>
+        <p class="kicker">Inside a chapter</p>
+        <h2 id="inside-title" class="h-section">Short enough for one sitting. Real enough for a school report.</h2>
+        <p class="lede" style="margin-bottom:2rem">Every chapter follows the same simple shape, so readers always know where they are.</p>
+        <ol>
+          <li><div><b>A fact box</b><span>When they lived and their big idea, in one or two sentences.</span></div></li>
+          <li><div><b>A true opening scene</b><span>A storm, a shed, a letter, a deadline: the moment everything changed.</span></div></li>
+          <li><div><b>The science, in plain words</b><span>One real idea per chapter, explained from scratch, with no textbook jargon.</span></div></li>
+          <li><div><b>Something to try or notice</b><span>“Try this”, “Look around you” and “Think about it” boxes bring the idea home.</span></div></li>
+          <li><div><b>Illustrations</b><span>Clear line drawings that show how the experiment or invention worked.</span></div></li>
+        </ol>
+      </div>
+      <article class="page-excerpt" data-vol="1" aria-label={`The opening of the chapter on ${curiePerson.name}`} style="padding-bottom:0">
+        <h3 class="chapter-name">{curiePerson.name}</h3>
+        <p class="chapter-sub">{curiePerson.subtitle}</p>
+        <div class="factbox">
+          <p><b>Lived:</b> {curiePerson.lifespan}</p>
+          <p><b>Big idea:</b> {curiePerson.bigIdea}</p>
+        </div>
+        <p>{curie.opening.blocks[0].text}</p>
+        <div class="fade" aria-hidden="true"></div>
+        <div class="continue">
+          <p>From Vol. 1, <em>The Greatest Physicists</em></p>
+          <a class="btn btn-ink" href={`${curie.url}#read`}>Read more of this chapter <Icon name="arrow" /></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section paper-2" aria-labelledby="try-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Hands on</p>
+          <h2 id="try-title" class="h-section">Science you can try at the kitchen table.</h2>
+          <p class="lede">Most chapters include a small experiment, something to look for on the way to school, or a question to argue about at dinner. Three examples, word for word from the books:</p>
+        </div>
+      </div>
+      <div class="activity-grid">
+        {activities.map(({ vol, box }) => <Activity vol={vol} box={box} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" aria-labelledby="choose-title">
+    <div class="wrap chooser">
+      <div>
+        <p class="kicker" style="--accent:var(--v2)">Which book first?</p>
+        <h2 id="choose-title" class="h-section">Start with what they’re already into.</h2>
+        <p class="lede">Pick an interest and we’ll point you to the right volume.</p>
+      </div>
+      <div class="choose" role="group" aria-labelledby="choose-title">
+        <fieldset>
+          <legend class="sr-only">What are they into?</legend>
+          {VOLUMES.map((v, i) => (
+            <>
+              <input type="radio" name="interest" id={`int-${v.n}`} value={v.n} checked={i === 0} />
+              <label for={`int-${v.n}`} data-vol={v.n}><i></i>{v.interest}</label>
+            </>
+          ))}
+        </fieldset>
+        {VOLUMES.map((v) => (
+          <div class="pick" id={`pick-${v.n}`} data-vol={v.n} aria-live="polite">
+            <div class="pick-card">
+              <Cover vol={v} sizes="150px" widths={[150, 300]} />
+              <div>
+                <p class="kicker">Volume {v.n}</p>
+                <h3>{v.title}</h3>
+                <p class="tag">{v.tagline}</p>
+                <p>{v.hook}</p>
+                <div class="btn-row" style="margin-top:1rem">
+                  <BuyButtons vol={v} size="sm" formats={['paperback', 'kindle']} />
+                  <a href={v.url} style="color:#fff;font-weight:700">Look inside →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Who it’s for</p>
+          <h2 id="who-title" class="h-section">For readers who ask “but why?”</h2>
+        </div>
+      </div>
+      <div class="audiences">
+        <article class="audience" data-vol="3">
+          <div class="ico"><Icon name="teen" /></div>
+          <h3>Curious teens</h3>
+          <p>Short chapters, real drama and ideas explained without jargon. Good for readers 13 and up who like to know how things work, and for younger readers who already do.</p>
+        </article>
+        <article class="audience" data-vol="2">
+          <div class="ico"><Icon name="gift" /></div>
+          <h3>Parents and gift-givers</h3>
+          <p>A thoughtful gift that matches a real interest, from coding to medicine. Choose by field with the <a href="/gift-guide/">gift guide</a>, or give the whole set.</p>
+        </article>
+        <article class="audience" data-vol="5">
+          <div class="ico"><Icon name="school" /></div>
+          <h3>Teachers and homeschoolers</h3>
+          <p>One person per chapter, with dates, a big idea and an activity: a ready start for biography projects and science discussions. See <a href="/for-teachers/">ideas for class</a>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="names-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Who’s inside</p>
+          <h2 id="names-title" class="h-section">{TOTALS.people} people, from Archimedes to Tu Youyou.</h2>
+          <p class="lede">Every name below is a chapter. Tap one to see their big idea and which book they’re in.</p>
+        </div>
+        <a class="btn btn-ink btn-sm" href="/people/">Browse everyone <Icon name="arrow" /></a>
+      </div>
+      <ul class="cloud">
+        {PEOPLE.map((p) => <li data-vol={p.vol}><a href={`/people/#${p.slug}`}>{p.name}</a></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap-narrow">
+      <p class="kicker">Questions</p>
+      <h2 id="faq-title" class="h-section">Good to know</h2>
+      <Faq items={SERIES_FAQ} openFirst />
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .choose .pick { margin-top: 1.25rem; }
+  .choose:has(#int-1:checked) #pick-1,
+  .choose:has(#int-2:checked) #pick-2,
+  .choose:has(#int-3:checked) #pick-3,
+  .choose:has(#int-4:checked) #pick-4,
+  .choose:has(#int-5:checked) #pick-5,
+  .choose:has(#int-6:checked) #pick-6,
+  .choose:has(#int-7:checked) #pick-7 { display: block; }
+  @media (min-width: 861px) {
+    .choose { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 1.5rem; align-items: start; }
+    .choose .pick { margin-top: 0; grid-column: 2; grid-row: 1; }
+    .chooser { grid-template-columns: 1fr; }
+  }
+</style>

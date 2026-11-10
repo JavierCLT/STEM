@@ -1,0 +1,23 @@
+{
+  "name": "famousinstem",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/postbuild.mjs",
+    "preview": "astro preview",
+    "content": "node scripts/extract-content.mjs",
+    "check:excerpts": "node scripts/excerpt-audit.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "astro": "^7.4.8"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}

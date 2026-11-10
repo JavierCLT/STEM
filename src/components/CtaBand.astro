@@ -1,0 +1,25 @@
+---
+import Cover from './Cover.astro';
+import Icon from './Icon.astro';
+import { SITE, VOLUMES } from '../data/site';
+interface Props { title?: string; text?: string }
+const {
+  title = 'Start with the field they love.',
+  text = 'Seven books, one for each corner of STEM. Every volume stands on its own, so there is no wrong place to begin.',
+} = Astro.props;
+---
+<section class="cta-band section-tight" aria-labelledby="cta-title">
+  <div class="wrap cta-inner">
+    <div>
+      <h2 id="cta-title" class="h-section">{title}</h2>
+      <p class="lede">{text}</p>
+      <div class="btn-row" style="margin-top:1.5rem">
+        <a class="btn" href={SITE.seriesPage} rel="external" data-asin="B0CBN56CKM" style="--accent:var(--v1)"><Icon name="cart" />See the series on Amazon</a>
+        <a class="btn btn-ghost" href="/books/">Compare the seven books</a>
+      </div>
+    </div>
+    <div class="mini-covers" aria-hidden="true">
+      {VOLUMES.map((v) => <Cover vol={v} sizes="64px" widths={[64, 128]} alt="" />)}
+    </div>
+  </div>
+</section>

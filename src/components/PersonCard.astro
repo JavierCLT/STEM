@@ -1,0 +1,19 @@
+---
+interface Props {
+  person: { slug: string; name: string; subtitle: string; bigIdea: string; lifespan: string; vol?: number; volTitle?: string; volUrl?: string };
+  vol: number;
+  showBook?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+const { person, vol, showBook = false, headingLevel = 'h3' } = Astro.props;
+const H = headingLevel;
+---
+<li class="person" id={person.slug} data-vol={vol} data-name={person.name.toLowerCase()}>
+  <H>{person.name}</H>
+  <span class="yrs">{person.lifespan}</span>
+  <p class="sub">{person.subtitle}</p>
+  <p class="idea"><b>Big idea</b>{person.bigIdea}</p>
+  {showBook && person.volUrl && (
+    <p class="in">In <a href={`${person.volUrl}#${person.slug}`}>Vol. {vol}: {person.volTitle}</a></p>
+  )}
+</li>

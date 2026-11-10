@@ -1,0 +1,29 @@
+---
+import Icon from './Icon.astro';
+import { amazonUrl, FORMAT_LABEL, type Format, type Volume } from '../data/site';
+
+interface Props {
+  vol: Volume;
+  size?: 'sm' | 'md';
+  /** 'dark' when the buttons sit on a navy background. */
+  on?: 'dark' | 'light';
+  formats?: Format[];
+}
+const { vol, size = 'md', on = 'dark', formats = ['paperback', 'kindle'] } = Astro.props;
+const available = formats.filter((f) => vol.asin[f]);
+---
+<div class="btn-row">
+  {available.map((f, i) => (
+    <a
+      class:list={['btn', size === 'sm' && 'btn-sm', i > 0 && (on === 'dark' ? 'btn-ghost' : 'btn-ink')]}
+      href={amazonUrl(vol.asin[f]!)}
+      rel="external"
+      data-asin={vol.asin[f]}
+      data-format={f}
+      aria-label={`Buy ${vol.title} (Famous in STEM, Volume ${vol.n}) as a ${FORMAT_LABEL[f].toLowerCase()} on Amazon`}
+    >
+      {i === 0 && <Icon name="cart" />}
+      {FORMAT_LABEL[f]}<span class="sr-only"> on Amazon</span>{i === 0 && size === 'md' && <small aria-hidden="true">on Amazon</small>}
+    </a>
+  ))}
+</div>

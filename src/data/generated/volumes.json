@@ -1,0 +1,2407 @@
+{
+  "generated": "2026-11-10",
+  "volumes": [
+    {
+      "n": 1,
+      "chapters": 26,
+      "peopleCount": 26,
+      "totals": {
+        "words": 24869,
+        "figures": 23
+      },
+      "excerpt": {
+        "words": 1507,
+        "figures": 1,
+        "textShare": 0.0606
+      },
+      "intro": {
+        "heading": "BEFORE YOU START",
+        "paragraphs": [
+          "Physics has a reputation for being hard, and some of it is. But the heart of it is simple and a little shocking: the world runs on a few rules, the rules can be written down, and anyone can learn them. The same pull that drops a ball keeps the Moon in its orbit. The spark from a doorknob and a bolt of lightning are the same thing. Light takes time to reach you, so you have never seen anything as it is right now. Nobody gets used to this. The people in these pages never did."
+        ]
+      },
+      "opening": {
+        "person": "marie-curie",
+        "name": "Marie Curie",
+        "subtitle": "She boiled down tons of rock to find a glow",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "The shed had a leaking glass roof, a tarred floor and no way to clear the poisonous fumes, so the smokiest work had to be done outside in the yard. Through 1898 and the years after, a woman stood over a boiling mass of rock, stirring it with an iron rod nearly as big as herself. Some days she stirred for hours without a break. At night she and her husband would walk back to the shed and stand in the dark, looking at the bottles and tubes on the tables. They glowed, faint as fairy lights, all by themselves."
+          },
+          {
+            "kind": "p",
+            "text": "Marie Curie later wrote that she and Pierre spent the best and happiest years of their lives in that miserable shed."
+          },
+          {
+            "kind": "h2",
+            "text": "A student who forgot to eat"
+          },
+          {
+            "kind": "p",
+            "text": "She had come to Paris from Warsaw in the autumn of 1891, around her twenty-fourth birthday. Poland was ruled by Russia, and the university in Warsaw did not take women. Maria Skłodowska had studied in secret at the “Flying University,” classes that moved from house to house to stay ahead of the police, and had worked for years as a governess to pay for her sister’s medical degree. Now it was her turn."
+          },
+          {
+            "kind": "p",
+            "text": "She rented an attic room, lived mostly on bread and tea, and, the story goes, once fainted from not eating. In 1893 she finished first in her physics degree; the next year she took a second degree in mathematics. In 1894 she met Pierre Curie, a quiet physicist eight years older who studied magnetism and crystals. They married the next summer and spent their honeymoon on bicycles."
+          }
+        ]
+      },
+      "boxes": [
+        {
+          "person": "daniel-bernoulli",
+          "name": "Daniel Bernoulli",
+          "label": "Try this",
+          "text": "Hold a strip of paper by one end just below your bottom lip, so that it droops. Blow hard across the top of it. The strip rises toward the horizontal. You have made a wing out of paper. The air bends to follow the curve of the paper, and air flowing around a bend presses less on the inside of it, so the still air below pushes the strip up."
+        },
+        {
+          "person": "michael-faraday",
+          "name": "Michael Faraday",
+          "label": "Look around you",
+          "text": "Find a wind turbine, a hand-crank flashlight or a bicycle light that works without batteries. Inside each one, a magnet or electromagnet moves past a coil, the same trick Faraday used on his bench in 1831. What has changed in two centuries is mostly the size and the power."
+        }
+      ],
+      "hooks": [
+        {
+          "person": "stephen-hawking",
+          "name": "Stephen Hawking",
+          "text": "In 1963 a twenty-one-year-old graduate student at Cambridge was told he had perhaps two years to live."
+        },
+        {
+          "person": "albert-einstein",
+          "name": "Albert Einstein",
+          "text": "In 1905 a twenty-six-year-old clerk at the patent office in Bern, Switzerland, spent his days judging whether other people’s inventions would work."
+        },
+        {
+          "person": "richard-feynman",
+          "name": "Richard Feynman",
+          "text": "On February 11, 1986, a committee was meeting in Washington to find out why the space shuttle Challenger had exploded two weeks earlier, killing seven astronauts."
+        },
+        {
+          "person": "j-robert-oppenheimer",
+          "name": "J. Robert Oppenheimer",
+          "text": "At 5:29 in the morning on July 16, 1945, in the desert of southern New Mexico, a group of scientists waited in and around a bunker nine kilometers from a steel tower."
+        }
+      ],
+      "figures": [
+        {
+          "person": "ernest-rutherford",
+          "name": "Ernest Rutherford",
+          "caption": "Most alpha particles went straight through the gold. A very few came back. Only a tiny, heavy nucleus could do that.",
+          "alt": "The gold foil experiment from above: a radioactive source firing alpha particles at a thin gold foil, a curved fluorescent screen around it; most tracks pass straight through, a few bend, one bounces back toward the source",
+          "src": "src/assets/figures/v1-13-rutherford-1.png"
+        }
+      ],
+      "cover": "src/assets/covers/vol-1.jpg",
+      "people": [
+        {
+          "chapter": "01-newton",
+          "slug": "isaac-newton",
+          "name": "Isaac Newton",
+          "people": [
+            "Isaac Newton"
+          ],
+          "subtitle": "The plague year that changed physics",
+          "bigIdea": "The force that drops an apple is the force that holds the Moon in orbit, and it obeys one simple rule.",
+          "lifespan": "1642–1727"
+        },
+        {
+          "chapter": "02-tesla",
+          "slug": "nikola-tesla",
+          "name": "Nikola Tesla",
+          "people": [
+            "Nikola Tesla"
+          ],
+          "subtitle": "The man who made electricity spin",
+          "bigIdea": "Alternating current, which can be sent hundreds of miles and turned into motion with nothing rubbing.",
+          "lifespan": "1856–1943"
+        },
+        {
+          "chapter": "03-curie",
+          "slug": "marie-curie",
+          "name": "Marie Curie",
+          "people": [
+            "Marie Curie"
+          ],
+          "subtitle": "She boiled down tons of rock to find a glow",
+          "bigIdea": "Some atoms fall apart on their own and give off energy. She named it radioactivity and found two elements that do it.",
+          "lifespan": "1867–1934"
+        },
+        {
+          "chapter": "04-einstein",
+          "slug": "albert-einstein",
+          "name": "Albert Einstein",
+          "people": [
+            "Albert Einstein"
+          ],
+          "subtitle": "The patent clerk who bent time",
+          "bigIdea": "Light passes everyone at the same speed, so space and time must stretch to fit. Mass is frozen energy: E = mc².",
+          "lifespan": "1879–1955"
+        },
+        {
+          "chapter": "05-bernoulli",
+          "slug": "daniel-bernoulli",
+          "name": "Daniel Bernoulli",
+          "people": [
+            "Daniel Bernoulli"
+          ],
+          "subtitle": "The doctor who found that fast air pushes less",
+          "bigIdea": "Along a smooth flow of fluid, where it moves faster, its pressure is lower. That holds up aircraft and presses racing cars onto the track.",
+          "lifespan": "1700–1782"
+        },
+        {
+          "chapter": "06-galileo",
+          "slug": "galileo-galilei",
+          "name": "Galileo Galilei",
+          "people": [
+            "Galileo Galilei"
+          ],
+          "subtitle": "He pointed a spyglass at Jupiter and found four moons",
+          "bigIdea": "Test ideas by measuring. Without air to slow them, all objects fall at the same rate, and the Earth is not the center of everything.",
+          "lifespan": "1564–1642"
+        },
+        {
+          "chapter": "07-faraday",
+          "slug": "michael-faraday",
+          "name": "Michael Faraday",
+          "people": [
+            "Michael Faraday"
+          ],
+          "subtitle": "The bookbinder’s apprentice who found electricity in a magnet",
+          "bigIdea": "Move a magnet near a wire and electricity flows. Most of the world’s electricity still comes from this.",
+          "lifespan": "1791–1867"
+        },
+        {
+          "chapter": "08-planck",
+          "slug": "max-planck",
+          "name": "Max Planck",
+          "people": [
+            "Max Planck"
+          ],
+          "subtitle": "The reluctant revolutionary",
+          "bigIdea": "Energy comes in packets. Hot atoms can give off light only in whole packets, and bluer light comes in bigger packets.",
+          "lifespan": "1858–1947"
+        },
+        {
+          "chapter": "09-hawking",
+          "slug": "stephen-hawking",
+          "name": "Stephen Hawking",
+          "people": [
+            "Stephen Hawking"
+          ],
+          "subtitle": "The man who made black holes glow",
+          "bigIdea": "Black holes are not perfectly black. They leak a faint glow and, given enough time, evaporate.",
+          "lifespan": "1942–2018"
+        },
+        {
+          "chapter": "10-bohr",
+          "slug": "niels-bohr",
+          "name": "Niels Bohr",
+          "people": [
+            "Niels Bohr"
+          ],
+          "subtitle": "The goalkeeper who built the atom out of stairs",
+          "bigIdea": "Electrons can sit only on certain rungs around the nucleus. When one jumps down a rung, the atom gives off light of exactly one color.",
+          "lifespan": "1885–1962"
+        },
+        {
+          "chapter": "11-maxwell",
+          "slug": "james-clerk-maxwell",
+          "name": "James Clerk Maxwell",
+          "people": [
+            "James Clerk Maxwell"
+          ],
+          "subtitle": "Four equations, and light fell out of them",
+          "bigIdea": "Electricity and magnetism are one thing, and light is a wave of it. So are radio, X-rays and the signal to your phone.",
+          "lifespan": "1831–1879"
+        },
+        {
+          "chapter": "12-romer",
+          "slug": "ole-romer",
+          "name": "Ole Rømer",
+          "people": [
+            "Ole Rømer"
+          ],
+          "subtitle": "He timed a moon and caught light being slow",
+          "bigIdea": "Light takes time to travel. When you look at anything, you see it as it was, not as it is.",
+          "lifespan": "1644–1710"
+        },
+        {
+          "chapter": "13-rutherford",
+          "slug": "ernest-rutherford",
+          "name": "Ernest Rutherford",
+          "people": [
+            "Ernest Rutherford"
+          ],
+          "subtitle": "The farm boy who found the center of the atom",
+          "bigIdea": "An atom is almost entirely empty space, with nearly all its mass packed into a nucleus a hundred thousand times smaller.",
+          "lifespan": "1871–1937"
+        },
+        {
+          "chapter": "14-feynman",
+          "slug": "richard-feynman",
+          "name": "Richard Feynman",
+          "people": [
+            "Richard Feynman"
+          ],
+          "subtitle": "The physicist who drew the universe in squiggles",
+          "bigIdea": "Every way a thing could happen counts a little. Add up all the possibilities and you get what we see.",
+          "lifespan": "1918–1988"
+        },
+        {
+          "chapter": "15-volta",
+          "slug": "alessandro-volta",
+          "name": "Alessandro Volta",
+          "people": [
+            "Alessandro Volta"
+          ],
+          "subtitle": "He stacked coins and wet paper and the world lit up",
+          "bigIdea": "Two different metals and something salty between them make electricity flow. Stack enough and you have a battery.",
+          "lifespan": "1745–1827"
+        },
+        {
+          "chapter": "16-franklin",
+          "slug": "benjamin-franklin",
+          "name": "Benjamin Franklin",
+          "people": [
+            "Benjamin Franklin"
+          ],
+          "subtitle": "The printer who pulled a spark from a storm cloud",
+          "bigIdea": "Lightning is electricity, the same stuff as the spark from a doorknob, and a pointed metal rod can lead it safely into the ground.",
+          "lifespan": "1706–1790"
+        },
+        {
+          "chapter": "17-archimedes",
+          "slug": "archimedes",
+          "name": "Archimedes",
+          "people": [
+            "Archimedes"
+          ],
+          "subtitle": "The man who could lift the Earth, given a place to stand",
+          "bigIdea": "Water pushes up on anything in it with a force equal to the weight of the water pushed aside. A long lever multiplies a small push.",
+          "lifespan": "c. 287–212 BC"
+        },
+        {
+          "chapter": "18-hertz",
+          "slug": "heinrich-hertz",
+          "name": "Heinrich Hertz",
+          "people": [
+            "Heinrich Hertz"
+          ],
+          "subtitle": "The spark that jumped across the room",
+          "bigIdea": "Maxwell’s invisible waves are real. You can make them with a spark and catch them with a loop of wire.",
+          "lifespan": "1857–1894"
+        },
+        {
+          "chapter": "19-kepler",
+          "slug": "johannes-kepler",
+          "name": "Johannes Kepler",
+          "people": [
+            "Johannes Kepler"
+          ],
+          "subtitle": "He threw out a theory over eight minutes of arc",
+          "bigIdea": "Planets move in ellipses, not circles, speeding up near the Sun. Their orbits follow three rules that Newton later explained with gravity.",
+          "lifespan": "1571–1630"
+        },
+        {
+          "chapter": "20-ohm",
+          "slug": "georg-ohm",
+          "name": "Georg Ohm",
+          "people": [
+            "Georg Ohm"
+          ],
+          "subtitle": "The schoolteacher who measured the push and the flow",
+          "bigIdea": "Current equals voltage divided by resistance. One short rule is behind the design of almost every circuit on Earth.",
+          "lifespan": "1789–1854"
+        },
+        {
+          "chapter": "21-oppenheimer",
+          "slug": "j-robert-oppenheimer",
+          "name": "J. Robert Oppenheimer",
+          "people": [
+            "J. Robert Oppenheimer"
+          ],
+          "subtitle": "The man who ran the project that built the bomb",
+          "bigIdea": "Split one uranium nucleus and it throws out neutrons that split more. A chain reaction can release the energy locked in matter, all at once.",
+          "lifespan": "1904–1967"
+        },
+        {
+          "chapter": "22-fermi",
+          "slug": "enrico-fermi",
+          "name": "Enrico Fermi",
+          "people": [
+            "Enrico Fermi"
+          ],
+          "subtitle": "He lit the first nuclear fire under a football stand",
+          "bigIdea": "Slow a neutron down and it is far more likely to be caught by a nucleus. With that, a chain reaction can be controlled.",
+          "lifespan": "1901–1954"
+        },
+        {
+          "chapter": "23-chadwick",
+          "slug": "james-chadwick",
+          "name": "James Chadwick",
+          "people": [
+            "James Chadwick"
+          ],
+          "subtitle": "He found the particle with no charge, in less than three weeks",
+          "bigIdea": "The nucleus holds neutrons: particles as heavy as a proton with no electric charge. They explain atomic weights and make chain reactions possible.",
+          "lifespan": "1891–1974"
+        },
+        {
+          "chapter": "24-becquerel",
+          "slug": "henri-becquerel",
+          "name": "Henri Becquerel",
+          "people": [
+            "Henri Becquerel"
+          ],
+          "subtitle": "The experiment that worked because the sun did not shine",
+          "bigIdea": "Some substances give off invisible rays with no help from anything. The atom has an energy source of its own.",
+          "lifespan": "1852–1908"
+        },
+        {
+          "chapter": "25-thomson",
+          "slug": "j-j-thomson",
+          "name": "J. J. Thomson",
+          "people": [
+            "J. J. Thomson"
+          ],
+          "subtitle": "The clumsy professor who found the first piece of the atom",
+          "bigIdea": "Atoms are not the smallest things. Inside every one are electrons, nearly two thousand times lighter than the lightest atom.",
+          "lifespan": "1856–1940"
+        },
+        {
+          "chapter": "26-edison",
+          "slug": "thomas-edison",
+          "name": "Thomas Edison",
+          "people": [
+            "Thomas Edison"
+          ],
+          "subtitle": "The inventor who lit Wall Street and lost the current war",
+          "bigIdea": "A light bulb is useless without a system: a generator, wires, meters and a station to run it. He built the whole system, and then backed the wrong current.",
+          "lifespan": "1847–1931"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "chapters": 23,
+      "peopleCount": 23,
+      "totals": {
+        "words": 21984,
+        "figures": 13
+      },
+      "excerpt": {
+        "words": 1170,
+        "figures": 1,
+        "textShare": 0.0532
+      },
+      "intro": {
+        "heading": "BEFORE YOU START",
+        "paragraphs": [
+          "I had one wish for this book: that somewhere in these pages you would stop, pick up a pencil and check something for yourself."
+        ]
+      },
+      "opening": {
+        "person": "alan-turing",
+        "name": "Alan Turing",
+        "subtitle": "He imagined the computer before anyone could build one",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "Every day at midnight, German army and air force radio operators reset their Enigma machines to a new secret setting. Every message sent that day was scrambled with it. At a country house north of London called Bletchley Park, that meant every morning began at zero. Thousands of messages were pouring in, and the people reading them had until midnight to find the day’s key before the whole puzzle changed again."
+          },
+          {
+            "kind": "p",
+            "text": "The number of possible settings on an army Enigma was about 159 million million million. Trying them one by one was hopeless. What Alan Turing designed in the autumn of 1939 was a machine for not trying them one by one."
+          },
+          {
+            "kind": "h2",
+            "text": "The boy on the bicycle"
+          },
+          {
+            "kind": "p",
+            "text": "Turing’s father worked in India, and Alan and his brother were raised in England by a retired colonel and his wife. In May 1926, when he was thirteen, a general strike stopped the trains on the day he was due to start at Sherborne School. He got on his bicycle and rode the sixty miles, sleeping at an inn on the way. The local paper reported it."
+          },
+          {
+            "kind": "p",
+            "text": "He was untidy, shy and hopeless at Latin, and he spent his free time on the science and mathematics the school had not asked for. At King’s College, Cambridge, he found people who did not mind. In 1936, aged twenty-three, he wrote the paper that made him."
+          }
+        ]
+      },
+      "boxes": [
+        {
+          "person": "carl-friedrich-gauss",
+          "name": "Carl Friedrich Gauss",
+          "label": "Try this",
+          "text": "Gauss’s pairing trick works for any run of numbers. Add 1 to 20: pair 1 with 20, 2 with 19 and so on. Ten pairs of 21 make 210. Now do 1 to 1,000. Five hundred pairs of 1,001 make 500,500, and the answer takes longer to say than to find."
+        },
+        {
+          "person": "gottfried-wilhelm-leibniz",
+          "name": "Gottfried Wilhelm Leibniz",
+          "label": "Try this",
+          "text": "Write your age in binary. Find the largest power of two that fits (1, 2, 4, 8, 16, 32), write a 1, subtract it and repeat; write a 0 for any power you skip. For 13: 8 fits, leaving 5; 4 fits, leaving 1; skip 2; 1 fits. So 13 is 1101. Now count from 1 to 10 in binary. You will get the pattern 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010."
+        }
+      ],
+      "hooks": [
+        {
+          "person": "katherine-johnson",
+          "name": "Katherine Johnson",
+          "text": "In February 1962, John Glenn was about to become the first American to orbit the Earth."
+        },
+        {
+          "person": "srinivasa-ramanujan",
+          "name": "Srinivasa Ramanujan",
+          "text": "One morning early in 1913, the Cambridge mathematician G. H. Hardy opened a letter from a stranger in India."
+        },
+        {
+          "person": "paul-erdos",
+          "name": "Paul Erdős",
+          "text": "The doorbell rings at a mathematician’s house somewhere in the world."
+        },
+        {
+          "person": "ada-lovelace",
+          "name": "Ada Lovelace",
+          "text": "Guests at Charles Babbage’s Saturday evening parties in London were often shown a portrait of a man sitting in his workshop, so finely shaded that it could pass for an engraving."
+        }
+      ],
+      "figures": [
+        {
+          "person": "alan-turing",
+          "name": "Alan Turing",
+          "caption": "Press a key, a lamp lights. The first rotor turns with every keystroke, the others now and then, so the same letter comes out differently each time.",
+          "alt": "An Enigma machine with its keyboard, lampboard, three rotors and front plugboard labeled",
+          "src": "src/assets/figures/v2-03-turing-1.png"
+        }
+      ],
+      "cover": "src/assets/covers/vol-2.jpg",
+      "people": [
+        {
+          "chapter": "01-gauss",
+          "slug": "carl-friedrich-gauss",
+          "name": "Carl Friedrich Gauss",
+          "people": [
+            "Carl Friedrich Gauss"
+          ],
+          "subtitle": "The schoolboy who, the story goes, found the shortcut through a hundred numbers",
+          "bigIdea": "Before you start the arithmetic, look for the pattern underneath it.",
+          "lifespan": "1777–1855"
+        },
+        {
+          "chapter": "02-pascal",
+          "slug": "blaise-pascal",
+          "name": "Blaise Pascal",
+          "people": [
+            "Blaise Pascal"
+          ],
+          "subtitle": "The young man who put the weight of the air to the test",
+          "bigIdea": "Chance can be counted, and a column of air can be weighed.",
+          "lifespan": "1623–1662"
+        },
+        {
+          "chapter": "03-turing",
+          "slug": "alan-turing",
+          "name": "Alan Turing",
+          "people": [
+            "Alan Turing"
+          ],
+          "subtitle": "He imagined the computer before anyone could build one",
+          "bigIdea": "One machine can do any calculation, if you feed it the right instructions.",
+          "lifespan": "1912–1954"
+        },
+        {
+          "chapter": "04-euler",
+          "slug": "leonhard-euler",
+          "name": "Leonhard Euler",
+          "people": [
+            "Leonhard Euler"
+          ],
+          "subtitle": "The nearly blind man who worked out almost half his mathematics in his head",
+          "bigIdea": "Corners minus edges plus faces equals 2, for every flat-faced solid without holes.",
+          "lifespan": "1707–1783"
+        },
+        {
+          "chapter": "05-erdos",
+          "slug": "paul-erdos",
+          "name": "Paul Erdős",
+          "people": [
+            "Paul Erdős"
+          ],
+          "subtitle": "The mathematician who lived out of a suitcase",
+          "bigIdea": "Mathematics is done best in company, so go where the problems are.",
+          "lifespan": "1913–1996"
+        },
+        {
+          "chapter": "06-eratosthenes",
+          "slug": "eratosthenes",
+          "name": "Eratosthenes",
+          "people": [
+            "Eratosthenes"
+          ],
+          "subtitle": "He measured the Earth with a well and a stick",
+          "bigIdea": "Two shadows, about 800 kilometers apart, are enough to measure a planet.",
+          "lifespan": "c. 276–194 BC"
+        },
+        {
+          "chapter": "07-pythagoras",
+          "slug": "pythagoras",
+          "name": "Pythagoras",
+          "people": [
+            "Pythagoras"
+          ],
+          "subtitle": "The theorem is real; the man is mostly fog",
+          "bigIdea": "In a right-angled triangle, the squares on the two short sides add up to the square on the long one.",
+          "lifespan": "c. 570–495 BC"
+        },
+        {
+          "chapter": "08-fibonacci",
+          "slug": "fibonacci",
+          "name": "Fibonacci",
+          "people": [
+            "Fibonacci"
+          ],
+          "subtitle": "The customs official’s son who taught Europe to count with zero",
+          "bigIdea": "Ten symbols and the idea of place value can handle any number there is.",
+          "lifespan": "c. 1170–after 1240"
+        },
+        {
+          "chapter": "09-euclid",
+          "slug": "euclid",
+          "name": "Euclid",
+          "people": [
+            "Euclid"
+          ],
+          "subtitle": "The textbook that lasted two thousand years",
+          "bigIdea": "Start from a few plain truths and prove everything else, step by step.",
+          "lifespan": "c. 325–265 BC"
+        },
+        {
+          "chapter": "10-cardano",
+          "slug": "girolamo-cardano",
+          "name": "Girolamo Cardano",
+          "people": [
+            "Girolamo Cardano"
+          ],
+          "subtitle": "The gambling doctor who wrote down an impossible number",
+          "bigIdea": "Chance obeys arithmetic, and so, it turns out, does the square root of a negative number.",
+          "lifespan": "1501–1576"
+        },
+        {
+          "chapter": "11-ramanujan",
+          "slug": "srinivasa-ramanujan",
+          "name": "Srinivasa Ramanujan",
+          "people": [
+            "Srinivasa Ramanujan"
+          ],
+          "subtitle": "The clerk who mailed a hundred theorems to Cambridge",
+          "bigIdea": "Some people can see what numbers are doing before anyone can prove it.",
+          "lifespan": "1887–1920"
+        },
+        {
+          "chapter": "12-laplace",
+          "slug": "pierre-simon-laplace",
+          "name": "Pierre-Simon Laplace",
+          "people": [
+            "Pierre-Simon Laplace"
+          ],
+          "subtitle": "He worked out the odds that the Sun will rise tomorrow",
+          "bigIdea": "Probability is common sense turned into arithmetic.",
+          "lifespan": "1749–1827"
+        },
+        {
+          "chapter": "13-riemann",
+          "slug": "bernhard-riemann",
+          "name": "Bernhard Riemann",
+          "people": [
+            "Bernhard Riemann"
+          ],
+          "subtitle": "The shy pastor’s son who bent space",
+          "bigIdea": "Space itself can curve, differently in different places, and we can measure it from inside.",
+          "lifespan": "1826–1866"
+        },
+        {
+          "chapter": "14-fermat",
+          "slug": "pierre-de-fermat",
+          "name": "Pierre de Fermat",
+          "people": [
+            "Pierre de Fermat"
+          ],
+          "subtitle": "The judge whose margin riddle lasted more than 350 years",
+          "bigIdea": "Two squares can add up to a square; two cubes never add up to a cube.",
+          "lifespan": "1601 or 1607–1665"
+        },
+        {
+          "chapter": "15-johnson",
+          "slug": "katherine-johnson",
+          "name": "Katherine Johnson",
+          "people": [
+            "Katherine Johnson"
+          ],
+          "subtitle": "The astronaut would not fly until she had checked the numbers",
+          "bigIdea": "Once the engine stops, a spacecraft is a thrown stone, and a thrown stone can be calculated.",
+          "lifespan": "1918–2020"
+        },
+        {
+          "chapter": "16-poincare",
+          "slug": "henri-poincare",
+          "name": "Henri Poincaré",
+          "people": [
+            "Henri Poincaré"
+          ],
+          "subtitle": "He found the limits of prediction, and had to pay for the printing",
+          "bigIdea": "Three bodies pulling on each other can move in ways no simple formula can predict.",
+          "lifespan": "1854–1912"
+        },
+        {
+          "chapter": "17-leibniz",
+          "slug": "gottfried-wilhelm-leibniz",
+          "name": "Gottfried Wilhelm Leibniz",
+          "people": [
+            "Gottfried Wilhelm Leibniz"
+          ],
+          "subtitle": "He wrote every number with 0 and 1",
+          "bigIdea": "Two symbols are enough to write any number, and the right symbols make hard thinking easy.",
+          "lifespan": "1646–1716"
+        },
+        {
+          "chapter": "18-lovelace",
+          "slug": "ada-lovelace",
+          "name": "Ada Lovelace",
+          "people": [
+            "Ada Lovelace"
+          ],
+          "subtitle": "The poet’s daughter who saw what a computer could become",
+          "bigIdea": "A machine that follows instructions can work on anything you can write as symbols, not just numbers.",
+          "lifespan": "1815–1852"
+        },
+        {
+          "chapter": "19-tao",
+          "slug": "terence-tao",
+          "name": "Terence Tao",
+          "people": [
+            "Terence Tao"
+          ],
+          "subtitle": "The youngest gold medalist in the history of the Olympiad",
+          "bigIdea": "Among the prime numbers, evenly spaced runs of any length you like are waiting to be found.",
+          "lifespan": "born 1975"
+        },
+        {
+          "chapter": "20-nash",
+          "slug": "john-nash",
+          "name": "John Nash",
+          "people": [
+            "John Nash"
+          ],
+          "subtitle": "A short thesis on how rivals really behave",
+          "bigIdea": "In any contest with a limited number of choices, there is a way to play, sometimes by mixing moves at random, where nobody gains by changing alone.",
+          "lifespan": "1928–2015"
+        },
+        {
+          "chapter": "21-cantor",
+          "slug": "georg-cantor",
+          "name": "Georg Cantor",
+          "people": [
+            "Georg Cantor"
+          ],
+          "subtitle": "He counted past infinity, and found more than one",
+          "bigIdea": "Some infinities are bigger than others, and there is a way to prove it.",
+          "lifespan": "1845–1918"
+        },
+        {
+          "chapter": "22-von-neumann",
+          "slug": "john-von-neumann",
+          "name": "John von Neumann",
+          "people": [
+            "John von Neumann"
+          ],
+          "subtitle": "He drew the plan that almost every computer still follows",
+          "bigIdea": "Keep the program in the same memory as the data, and one machine can do any job you can write as a program.",
+          "lifespan": "1903–1957"
+        },
+        {
+          "chapter": "23-lagrange",
+          "slug": "joseph-louis-lagrange",
+          "name": "Joseph-Louis Lagrange",
+          "people": [
+            "Joseph-Louis Lagrange"
+          ],
+          "subtitle": "The quiet man who found the parking places in space",
+          "bigIdea": "Around any two bodies in orbit there are five points where a third can keep pace with them.",
+          "lifespan": "1736–1813"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "chapters": 25,
+      "peopleCount": 27,
+      "totals": {
+        "words": 24038,
+        "figures": 25
+      },
+      "excerpt": {
+        "words": 1324,
+        "figures": 1,
+        "textShare": 0.0551
+      },
+      "intro": {
+        "heading": "BEFORE YOU START",
+        "paragraphs": [
+          "The phone in your pocket has more computing power than NASA had when it sent people to the Moon. The twenty-seven people in this book (four of them worked in pairs) are a large part of the reason. Almost none of them set out to change the world. Most set out to make one thing work: a disk controller with fewer chips, a shortest route between two Dutch cities, a way to pass notes around a dentist’s office."
+        ]
+      },
+      "opening": {
+        "person": "steve-jobs",
+        "name": "Steve Jobs",
+        "subtitle": "The college dropout who made computers friendly",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "On January 24, 1984, a 28-year-old in a bow tie walked onto a stage in Cupertino, California, and lifted a small beige box out of a cloth bag. He slid in a floppy disk. The box drew pictures on its screen, then spoke in a flat robot voice. It said it sure was great to get out of that bag."
+          },
+          {
+            "kind": "p",
+            "text": "Many computers in 1984 showed green letters on a black screen and waited for you to type commands you had to memorize. The Macintosh showed a desk: little pictures of folders and documents, and an arrow you moved with a mouse. You pointed at what you wanted. Steve Jobs did not invent any of that. What he did, over and over, was decide that ordinary people deserved it, and then push until it shipped."
+          },
+          {
+            "kind": "h2",
+            "text": "A garage in Los Altos"
+          },
+          {
+            "kind": "p",
+            "text": "Jobs was adopted as a baby by Paul and Clara Jobs. Paul was a machinist who fixed cars and kept a workbench in the family garage, and he gave his son a corner of it. The family lived in Mountain View until Jobs was in middle school, then moved to Los Altos, orchard country that was turning into Silicon Valley."
+          },
+          {
+            "kind": "p",
+            "text": "Jobs liked to tell a story about being about twelve and needing parts for a frequency counter. He looked up Bill Hewlett, the co-founder of Hewlett-Packard, in the phone book and called him at home. Hewlett laughed, talked with him, sent the parts and offered him a summer job on an assembly line. Whether or not every detail is exact, the habit was real: Jobs asked for things other people assumed they could not have."
+          }
+        ]
+      },
+      "boxes": [
+        {
+          "person": "tim-berners-lee",
+          "name": "Tim Berners-Lee",
+          "label": "Try this",
+          "text": "In most browsers you can right-click any page and choose “View page source.” What appears is the HTML the server sent: the same kind of tags Berners-Lee designed in 1990, with more than thirty years of additions. Find the words you were just reading, hidden among the angle brackets."
+        },
+        {
+          "person": "kevin-mitnick",
+          "name": "Kevin Mitnick",
+          "label": "Try this",
+          "text": "Make up a four-word password out of a dictionary with your eyes shut, pointing at pages. Then notice how easy it is to remember as a tiny story, and how hopeless it would be to guess. Never tell it to anyone who calls you. Real technicians never need your password; they can reset it."
+        }
+      ],
+      "hooks": [
+        {
+          "person": "grace-hopper",
+          "name": "Grace Hopper",
+          "text": "On September 9, 1947, a computer at Harvard University stopped working."
+        },
+        {
+          "person": "elon-musk",
+          "name": "Elon Musk",
+          "text": "On the night of December 21, 2015, an aluminum tube taller than a ten-story building fell out of the sky over Cape Canaveral, Florida."
+        },
+        {
+          "person": "linus-torvalds",
+          "name": "Linus Torvalds",
+          "text": "On August 25, 1991, a 21-year-old student in Helsinki posted a message to an online discussion group for people who used a small teaching operating system called MINIX."
+        },
+        {
+          "person": "bill-gates",
+          "name": "Bill Gates",
+          "text": "In December 1974, Paul Allen ran across Harvard Square clutching a magazine."
+        }
+      ],
+      "figures": [
+        {
+          "person": "elon-musk",
+          "name": "Elon Musk",
+          "caption": "The stage must arrive at zero speed and zero height at the same instant. It cannot hover.",
+          "alt": "A Falcon 9 first stage drawn at five moments after separation: coasting upward, flipping around, firing engines to slow down, steering with grid fins through the air, and landing on four legs. Beside each moment, a small speed figure falling from thousands of kilometers per hour to zero",
+          "src": "src/assets/figures/v3-15-musk-1.png"
+        }
+      ],
+      "cover": "src/assets/covers/vol-3.jpg",
+      "people": [
+        {
+          "chapter": "01-jobs",
+          "slug": "steve-jobs",
+          "name": "Steve Jobs",
+          "people": [
+            "Steve Jobs"
+          ],
+          "subtitle": "The college dropout who made computers friendly",
+          "bigIdea": "A computer should fit the person, not the other way around.",
+          "lifespan": "1955–2011"
+        },
+        {
+          "chapter": "02-gates",
+          "slug": "bill-gates",
+          "name": "Bill Gates",
+          "people": [
+            "Bill Gates"
+          ],
+          "subtitle": "The teenager who decided software was worth money",
+          "bigIdea": "Software is a product in its own right, sold separately from the machine it runs on.",
+          "lifespan": "born 1955"
+        },
+        {
+          "chapter": "03-wozniak",
+          "slug": "steve-wozniak",
+          "name": "Steve Wozniak",
+          "people": [
+            "Steve Wozniak"
+          ],
+          "subtitle": "The engineer who did it with fewer chips",
+          "bigIdea": "Let the processor do the work and the machine needs fewer parts. Code is almost free to copy, so it often costs less than hardware.",
+          "lifespan": "born 1950"
+        },
+        {
+          "chapter": "04-zuckerberg",
+          "slug": "mark-zuckerberg",
+          "name": "Mark Zuckerberg",
+          "people": [
+            "Mark Zuckerberg"
+          ],
+          "subtitle": "The sophomore who drew a map of who knows whom",
+          "bigIdea": "Write down who is friends with whom, and the map itself becomes the product.",
+          "lifespan": "born 1984"
+        },
+        {
+          "chapter": "05-mitnick",
+          "slug": "kevin-mitnick",
+          "name": "Kevin Mitnick",
+          "people": [
+            "Kevin Mitnick"
+          ],
+          "subtitle": "The hacker who talked his way in",
+          "bigIdea": "The weakest part of any computer system is a person who trusts a stranger.",
+          "lifespan": "1963–2023"
+        },
+        {
+          "chapter": "06-torvalds",
+          "slug": "linus-torvalds",
+          "name": "Linus Torvalds",
+          "people": [
+            "Linus Torvalds"
+          ],
+          "subtitle": "The student whose hobby now runs most internet servers",
+          "bigIdea": "Give away the core of an operating system and let thousands of strangers improve it with you.",
+          "lifespan": "born 1969"
+        },
+        {
+          "chapter": "07-berners-lee",
+          "slug": "tim-berners-lee",
+          "name": "Tim Berners-Lee",
+          "people": [
+            "Tim Berners-Lee"
+          ],
+          "subtitle": "The software engineer who gave the Web away",
+          "bigIdea": "Give every document on every computer an address, a way to fetch it and a way to link it to others.",
+          "lifespan": "born 1955"
+        },
+        {
+          "chapter": "08-hopper",
+          "slug": "grace-hopper",
+          "name": "Grace Hopper",
+          "people": [
+            "Grace Hopper"
+          ],
+          "subtitle": "The admiral who taught computers English",
+          "bigIdea": "Let people write instructions in words, and let a program turn the words into the machine’s numbers.",
+          "lifespan": "1906–1992"
+        },
+        {
+          "chapter": "09-moore",
+          "slug": "gordon-moore",
+          "name": "Gordon Moore",
+          "people": [
+            "Gordon Moore"
+          ],
+          "subtitle": "The chemist who predicted fifty years of computing with one graph",
+          "bigIdea": "The number of transistors on a chip doubles every couple of years, and has for half a century.",
+          "lifespan": "1929–2023"
+        },
+        {
+          "chapter": "10-noyce",
+          "slug": "robert-noyce",
+          "name": "Robert Noyce",
+          "people": [
+            "Robert Noyce"
+          ],
+          "subtitle": "The minister’s son who printed a circuit on a chip",
+          "bigIdea": "Make all the parts of a circuit in one piece of silicon and print the wires on top, the way you print a page.",
+          "lifespan": "1927–1990"
+        },
+        {
+          "chapter": "11-kahn-cerf",
+          "slug": "bob-kahn-and-vint-cerf",
+          "name": "Bob Kahn and Vint Cerf",
+          "people": [
+            "Bob Kahn",
+            "Vint Cerf"
+          ],
+          "subtitle": "Two engineers who taught networks to talk to each other",
+          "bigIdea": "Cut every message into numbered packets, let each one find its own way and reassemble them at the far end.",
+          "lifespan": "born 1938 and 1943"
+        },
+        {
+          "chapter": "12-dijkstra",
+          "slug": "edsger-dijkstra",
+          "name": "Edsger Dijkstra",
+          "people": [
+            "Edsger Dijkstra"
+          ],
+          "subtitle": "The twenty-minute café idea behind how maps find routes",
+          "bigIdea": "To find the shortest route, always settle the nearest place you have not yet settled.",
+          "lifespan": "1930–2002"
+        },
+        {
+          "chapter": "13-dorsey",
+          "slug": "jack-dorsey",
+          "name": "Jack Dorsey",
+          "people": [
+            "Jack Dorsey"
+          ],
+          "subtitle": "The boy with the scanner who shrank a message to 140 characters",
+          "bigIdea": "A public message short enough to fit in a text, sent to everyone who chooses to listen.",
+          "lifespan": "born 1976"
+        },
+        {
+          "chapter": "14-thiel",
+          "slug": "peter-thiel",
+          "name": "Peter Thiel",
+          "people": [
+            "Peter Thiel"
+          ],
+          "subtitle": "The chess player who moved money by infrared",
+          "bigIdea": "Paying online is changing two numbers in a ledger. The hard part is proving who asked.",
+          "lifespan": "born 1967"
+        },
+        {
+          "chapter": "15-musk",
+          "slug": "elon-musk",
+          "name": "Elon Musk",
+          "people": [
+            "Elon Musk"
+          ],
+          "subtitle": "The man who decided rockets should land",
+          "bigIdea": "A rocket that flies back and lands can be used again, and a car can run on a floor full of batteries.",
+          "lifespan": "born 1971"
+        },
+        {
+          "chapter": "16-andreessen",
+          "slug": "marc-andreessen",
+          "name": "Marc Andreessen",
+          "people": [
+            "Marc Andreessen"
+          ],
+          "subtitle": "The student who put pictures on the Web",
+          "bigIdea": "A browser that shows images beside the words, and that ordinary people could download and use.",
+          "lifespan": "born 1971"
+        },
+        {
+          "chapter": "17-fanning",
+          "slug": "shawn-fanning",
+          "name": "Shawn Fanning",
+          "people": [
+            "Shawn Fanning"
+          ],
+          "subtitle": "The freshman whose music program emptied the record shops",
+          "bigIdea": "Keep one list of who has which file, and let people’s computers trade directly with each other.",
+          "lifespan": "born 1980"
+        },
+        {
+          "chapter": "18-gosling",
+          "slug": "james-gosling",
+          "name": "James Gosling",
+          "people": [
+            "James Gosling"
+          ],
+          "subtitle": "The programmer who built an imaginary computer",
+          "bigIdea": "Compile a program once, for a machine that does not exist, and let every real machine pretend to be it.",
+          "lifespan": "born 1955"
+        },
+        {
+          "chapter": "19-van-rossum",
+          "slug": "guido-van-rossum",
+          "name": "Guido van Rossum",
+          "people": [
+            "Guido van Rossum"
+          ],
+          "subtitle": "The Christmas hobby that became one of the world’s most popular languages",
+          "bigIdea": "A programming language should read like the writing of a clear thinker, with nothing in the way.",
+          "lifespan": "born 1956"
+        },
+        {
+          "chapter": "20-dell",
+          "slug": "michael-dell",
+          "name": "Michael Dell",
+          "people": [
+            "Michael Dell"
+          ],
+          "subtitle": "The pre-med student who built computers to order in his dorm",
+          "bigIdea": "Build each computer only after someone has ordered it, from standard parts that all fit together.",
+          "lifespan": "born 1965"
+        },
+        {
+          "chapter": "21-stallman",
+          "slug": "richard-stallman",
+          "name": "Richard Stallman",
+          "people": [
+            "Richard Stallman"
+          ],
+          "subtitle": "The programmer who would not sign the agreement",
+          "bigIdea": "Software should come with the freedom to study, change and share it, and a license can make that freedom stick.",
+          "lifespan": "born 1953"
+        },
+        {
+          "chapter": "22-bezos",
+          "slug": "jeff-bezos",
+          "name": "Jeff Bezos",
+          "people": [
+            "Jeff Bezos"
+          ],
+          "subtitle": "The bookseller who started renting out his computers",
+          "bigIdea": "Computing can be rented by the hour over the internet, like electricity, instead of bought by the box.",
+          "lifespan": "born 1964"
+        },
+        {
+          "chapter": "23-page-brin",
+          "slug": "larry-page-and-sergey-brin",
+          "name": "Larry Page and Sergey Brin",
+          "people": [
+            "Larry Page",
+            "Sergey Brin"
+          ],
+          "subtitle": "Two graduate students who let the Web vote on itself",
+          "bigIdea": "A link from one page to another is a vote, and votes from important pages count more.",
+          "lifespan": "both born 1973"
+        },
+        {
+          "chapter": "24-wales",
+          "slug": "jimmy-wales",
+          "name": "Jimmy Wales",
+          "people": [
+            "Jimmy Wales"
+          ],
+          "subtitle": "The options trader who let everyone edit the encyclopedia",
+          "bigIdea": "Let anyone change any page, keep every version, and trust the crowd to fix mistakes faster than it makes them.",
+          "lifespan": "born 1966"
+        },
+        {
+          "chapter": "25-ellison",
+          "slug": "larry-ellison",
+          "name": "Larry Ellison",
+          "people": [
+            "Larry Ellison"
+          ],
+          "subtitle": "The dropout who sold IBM’s idea before IBM did",
+          "bigIdea": "Keep information in tables, link them by shared columns, and ask for what you want in a language that reads a little like English.",
+          "lifespan": "born 1944"
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "chapters": 24,
+      "peopleCount": 24,
+      "totals": {
+        "words": 22070,
+        "figures": 21
+      },
+      "excerpt": {
+        "words": 1315,
+        "figures": 1,
+        "textShare": 0.0596
+      },
+      "intro": {
+        "heading": "BEFORE YOU START",
+        "paragraphs": [
+          "Chemistry is the science you can hold in your hand. It is the salt on the table, the rust on a bicycle, the blue in your jeans and the smell of a struck match. Every one of those is a story about atoms changing partners, and once you know a few of the stories you cannot stop seeing them."
+        ]
+      },
+      "opening": {
+        "person": "alfred-nobel",
+        "name": "Alfred Nobel",
+        "subtitle": "The man who read his own obituary",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "In April 1888, the story goes, Alfred Nobel opened a French newspaper and found a report of his own death. His brother Ludvig had died in Cannes, and a journalist had mixed up the two Nobels. The piece was not kind. It called him a merchant of death, a man who had grown rich by finding ways to kill more people faster than ever before."
+          },
+          {
+            "kind": "p",
+            "text": "Nobel was fifty-four and unmarried, with a stake in factories across Europe. He had read plenty about himself, but he had never read how the world would sum him up once he was gone. The verdict stung. Almost nine years later his real will reached the newspapers, and this time the news was about what he had left to the world."
+          },
+          {
+            "kind": "h2",
+            "text": "A family that lived with explosives"
+          },
+          {
+            "kind": "p",
+            "text": "The Nobels were inventors who were often broke. Alfred’s father, Immanuel, went bankrupt in Stockholm and left to try his luck in Russia, where he built underwater mines for the Tsar’s navy. In 1842, when Alfred was nine, the family joined him in St. Petersburg. Now there was money for private tutors, and one of them was Nikolai Zinin, among the best chemists in Russia."
+          },
+          {
+            "kind": "p",
+            "text": "Years later, Zinin showed Alfred and his father a new liquid that an Italian chemist, Ascanio Sobrero, had first made in Turin in the 1840s. It was called nitroglycerin. It looked like pale oil, and a single drop, struck with a hammer, went off with a crack far louder than gunpowder. Sobrero was so frightened by it that he judged it far too dangerous to use. Nobel could not leave it alone."
+          }
+        ]
+      },
+      "boxes": [
+        {
+          "person": "adolf-von-baeyer",
+          "name": "Adolf von Baeyer",
+          "label": "Try this",
+          "text": "Red cabbage does the same trick in your kitchen. Chop a few leaves, soak them in hot water for ten minutes and pour the purple liquid into three glasses. Add lemon juice to one and it turns pink; add a spoon of baking soda to another and it turns blue or blue-green. The third is your control. You have made an indicator, and it works for the same reason as Baeyer’s."
+        },
+        {
+          "person": "stephanie-kwolek",
+          "name": "Stephanie Kwolek",
+          "label": "Look around you",
+          "text": "Kevlar is the yellowish fiber inside puncture-resistant bicycle tires, firefighters’ gloves, canoe hulls, racing sails, some phone charging cables and the vests worn by police officers. If an adult cuts open an old, unplugged charging cable and finds stringy yellow fibers, they are probably Kevlar or a close cousin of it."
+        }
+      ],
+      "hooks": [
+        {
+          "person": "percy-julian",
+          "name": "Percy Julian",
+          "text": "On June 12, 1951, someone threw a stick of dynamite at a house in Oak Park, Illinois."
+        },
+        {
+          "person": "rosalind-franklin",
+          "name": "Rosalind Franklin",
+          "text": "In May 1952, in a basement laboratory at King’s College London, a thin thread of DNA hung in a humidity-controlled chamber while an X-ray beam passed through it for days."
+        },
+        {
+          "person": "gertrude-elion",
+          "name": "Gertrude Elion",
+          "text": "In 1942 one of the best chemistry graduates in New York spent her working days checking the acidity of pickles and the color of mayonnaise for a supermarket chain."
+        },
+        {
+          "person": "henry-cavendish",
+          "name": "Henry Cavendish",
+          "text": "If you wanted to ask Henry Cavendish a question, there was a trick to it."
+        }
+      ],
+      "figures": [
+        {
+          "person": "rosalind-franklin",
+          "name": "Rosalind Franklin",
+          "caption": "The X says “helix.” The spacing of the marks says how tightly it winds.",
+          "alt": "A sketch of Photo 51: the X-shaped pattern of dark arcs, with labels showing that the X means a helix, the spacing of the arcs gives the length of one full turn (3.4 nanometers), and the strong marks at the top and bottom give the distance between the rungs (0.34 nanometers)",
+          "src": "src/assets/figures/v4-07-franklin-1.png"
+        }
+      ],
+      "cover": "src/assets/covers/vol-4.jpg",
+      "people": [
+        {
+          "chapter": "01-nobel",
+          "slug": "alfred-nobel",
+          "name": "Alfred Nobel",
+          "people": [
+            "Alfred Nobel"
+          ],
+          "subtitle": "The man who read his own obituary",
+          "bigIdea": "An explosion is an ordinary chemical reaction in a great hurry, and even that can be tamed.",
+          "lifespan": "1833–1896"
+        },
+        {
+          "chapter": "02-lavoisier",
+          "slug": "antoine-lavoisier",
+          "name": "Antoine Lavoisier",
+          "people": [
+            "Antoine Lavoisier"
+          ],
+          "subtitle": "The tax collector who weighed fire",
+          "bigIdea": "In a chemical reaction nothing is lost and nothing is created. Weigh everything, and the books balance.",
+          "lifespan": "1743–1794"
+        },
+        {
+          "chapter": "03-mendeleev",
+          "slug": "dmitri-mendeleev",
+          "name": "Dmitri Mendeleev",
+          "people": [
+            "Dmitri Mendeleev"
+          ],
+          "subtitle": "The man who knew elements nobody had seen",
+          "bigIdea": "Line the elements up by weight and their properties repeat, like the days of the week.",
+          "lifespan": "1834–1907"
+        },
+        {
+          "chapter": "04-boyle",
+          "slug": "robert-boyle",
+          "name": "Robert Boyle",
+          "people": [
+            "Robert Boyle"
+          ],
+          "subtitle": "The earl’s son who pumped a jar empty",
+          "bigIdea": "Squeeze a gas into half the space and it pushes back twice as hard.",
+          "lifespan": "1627–1691"
+        },
+        {
+          "chapter": "05-baeyer",
+          "slug": "adolf-von-baeyer",
+          "name": "Adolf von Baeyer",
+          "people": [
+            "Adolf von Baeyer"
+          ],
+          "subtitle": "The chemist who put the blue in blue jeans",
+          "bigIdea": "A color is a molecule. Work out the molecule and you can build the color in a factory.",
+          "lifespan": "1835–1917"
+        },
+        {
+          "chapter": "06-haber",
+          "slug": "fritz-haber",
+          "name": "Fritz Haber",
+          "people": [
+            "Fritz Haber"
+          ],
+          "subtitle": "The man who fed the world and poisoned the trenches",
+          "bigIdea": "Pull nitrogen out of the air and turn it into fertilizer. About half the people alive eat because of it.",
+          "lifespan": "1868–1934"
+        },
+        {
+          "chapter": "07-franklin",
+          "slug": "rosalind-franklin",
+          "name": "Rosalind Franklin",
+          "people": [
+            "Rosalind Franklin"
+          ],
+          "subtitle": "The photograph that showed the shape of life",
+          "bigIdea": "Fire X-rays through a crystal and the pattern they leave tells you how the molecule is built.",
+          "lifespan": "1920–1958"
+        },
+        {
+          "chapter": "08-molina",
+          "slug": "mario-molina",
+          "name": "Mario Molina",
+          "people": [
+            "Mario Molina"
+          ],
+          "subtitle": "The chemist who asked where the spray cans went",
+          "bigIdea": "A gas so stable that nothing on Earth destroys it will rise until the Sun breaks it apart, and then its chlorine eats the ozone layer.",
+          "lifespan": "1943–2020"
+        },
+        {
+          "chapter": "09-ball",
+          "slug": "alice-ball",
+          "name": "Alice Ball",
+          "people": [
+            "Alice Ball"
+          ],
+          "subtitle": "The chemist who turned a useless oil into a cure",
+          "bigIdea": "A medicine your body cannot absorb is no medicine. Change the molecule, and it works.",
+          "lifespan": "1892–1916"
+        },
+        {
+          "chapter": "10-pauling",
+          "slug": "linus-pauling",
+          "name": "Linus Pauling",
+          "people": [
+            "Linus Pauling"
+          ],
+          "subtitle": "The man who worked out what holds atoms together",
+          "bigIdea": "A chemical bond is a tug of war over electrons, and you can put a number on how hard each atom pulls.",
+          "lifespan": "1901–1994"
+        },
+        {
+          "chapter": "11-hodgkin",
+          "slug": "dorothy-hodgkin",
+          "name": "Dorothy Hodgkin",
+          "people": [
+            "Dorothy Hodgkin"
+          ],
+          "subtitle": "The Oxford housewife who saw the shape of penicillin",
+          "bigIdea": "A molecule is too small to see, but the shadows it casts in X-rays can be turned into a map of its atoms.",
+          "lifespan": "1910–1994"
+        },
+        {
+          "chapter": "12-julian",
+          "slug": "percy-julian",
+          "name": "Percy Julian",
+          "people": [
+            "Percy Julian"
+          ],
+          "subtitle": "The chemist who made medicine out of beans",
+          "bigIdea": "Nature builds its steroid hormones on one frame of four rings. Find a cheap plant that makes the frame and you can build the rest.",
+          "lifespan": "1899–1975"
+        },
+        {
+          "chapter": "13-davy",
+          "slug": "humphry-davy",
+          "name": "Humphry Davy",
+          "people": [
+            "Humphry Davy"
+          ],
+          "subtitle": "The showman who pulled new metals out of a battery",
+          "bigIdea": "Electricity can tear apart compounds that no furnace can touch, and inside them are elements nobody has seen.",
+          "lifespan": "1778–1829"
+        },
+        {
+          "chapter": "14-kekule",
+          "slug": "august-kekule",
+          "name": "August Kekulé",
+          "people": [
+            "August Kekulé"
+          ],
+          "subtitle": "The architect who dreamed a snake biting its tail",
+          "bigIdea": "Atoms in a molecule are joined in a definite pattern, and six carbon atoms can close into a ring.",
+          "lifespan": "1829–1896"
+        },
+        {
+          "chapter": "15-pasteur",
+          "slug": "louis-pasteur",
+          "name": "Louis Pasteur",
+          "people": [
+            "Louis Pasteur"
+          ],
+          "subtitle": "The chemist who found left-handed molecules",
+          "bigIdea": "Molecules come in left-handed and right-handed forms, and living things can tell the difference.",
+          "lifespan": "1822–1895"
+        },
+        {
+          "chapter": "16-elion",
+          "slug": "gertrude-elion",
+          "name": "Gertrude Elion",
+          "people": [
+            "Gertrude Elion"
+          ],
+          "subtitle": "The drug designer who built counterfeit keys",
+          "bigIdea": "Build a fake copy of a cell’s building block, and a cancer cell or virus will pick it up and jam itself.",
+          "lifespan": "1918–1999"
+        },
+        {
+          "chapter": "17-arrhenius",
+          "slug": "svante-arrhenius",
+          "name": "Svante Arrhenius",
+          "people": [
+            "Svante Arrhenius"
+          ],
+          "subtitle": "The man who first did the arithmetic on carbon dioxide",
+          "bigIdea": "Carbon dioxide in the air traps heat, and the more of it there is, the warmer the ground.",
+          "lifespan": "1859–1927"
+        },
+        {
+          "chapter": "18-baekeland",
+          "slug": "leo-baekeland",
+          "name": "Leo Baekeland",
+          "people": [
+            "Leo Baekeland"
+          ],
+          "subtitle": "The cobbler’s son who invented the first fully synthetic plastic",
+          "bigIdea": "Small molecules can be linked into chains and nets to make a material that exists nowhere in nature.",
+          "lifespan": "1863–1944"
+        },
+        {
+          "chapter": "19-scheele",
+          "slug": "carl-scheele",
+          "name": "Carl Scheele",
+          "people": [
+            "Carl Scheele"
+          ],
+          "subtitle": "The apothecary who found oxygen and lost the credit",
+          "bigIdea": "Air is a mixture, and about a fifth of it is a gas that makes fire blaze and keeps animals alive.",
+          "lifespan": "1742–1786"
+        },
+        {
+          "chapter": "20-avogadro",
+          "slug": "amedeo-avogadro",
+          "name": "Amedeo Avogadro",
+          "people": [
+            "Amedeo Avogadro"
+          ],
+          "subtitle": "The lawyer who learned to count molecules",
+          "bigIdea": "Equal volumes of any two gases, at the same temperature and pressure, hold the same number of molecules.",
+          "lifespan": "1776–1856"
+        },
+        {
+          "chapter": "21-tu-youyou",
+          "slug": "tu-youyou",
+          "name": "Tu Youyou",
+          "people": [
+            "Tu Youyou"
+          ],
+          "subtitle": "The pharmacist who read a 1,600-year-old prescription correctly",
+          "bigIdea": "A molecule from a common weed kills the malaria parasite, and Tu found it by keeping the extraction cool.",
+          "lifespan": "born 1930"
+        },
+        {
+          "chapter": "22-kwolek",
+          "slug": "stephanie-kwolek",
+          "name": "Stephanie Kwolek",
+          "people": [
+            "Stephanie Kwolek"
+          ],
+          "subtitle": "The chemist who would not pour the cloudy liquid away",
+          "bigIdea": "Line up stiff polymer chains side by side and the fiber they make is five times stronger than steel for its weight.",
+          "lifespan": "1923–2014"
+        },
+        {
+          "chapter": "23-cavendish",
+          "slug": "henry-cavendish",
+          "name": "Henry Cavendish",
+          "people": [
+            "Henry Cavendish"
+          ],
+          "subtitle": "The shyest man in science, who found the lightest gas",
+          "bigIdea": "A gas fourteen times lighter than air burns with oxygen and leaves nothing behind but water.",
+          "lifespan": "1731–1810"
+        },
+        {
+          "chapter": "24-zewail",
+          "slug": "ahmed-zewail",
+          "name": "Ahmed Zewail",
+          "people": [
+            "Ahmed Zewail"
+          ],
+          "subtitle": "The chemist who filmed a bond breaking",
+          "bigIdea": "Flash a laser twice, less than a trillionth of a second apart, and you can photograph atoms in the act of changing partners.",
+          "lifespan": "1946–2016"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "chapters": 20,
+      "peopleCount": 21,
+      "totals": {
+        "words": 20316,
+        "figures": 18
+      },
+      "excerpt": {
+        "words": 1350,
+        "figures": 1,
+        "textShare": 0.0665
+      },
+      "intro": {
+        "heading": "BEFORE YOU START",
+        "paragraphs": [
+          "Biology is the science of the one thing you cannot step outside of. You can put down a physics book and stop thinking about gravity. You cannot stop being alive. Right now, while you read this sentence, billions of cells in your body are copying all six billion letters of their DNA, the descendants of bacteria that moved in about two billion years ago are burning sugar to keep you warm, and the oxygen they are using came out of a leaf or a speck of plankton in the sea. The people in this book are the ones who noticed."
+        ]
+      },
+      "opening": {
+        "person": "charles-darwin",
+        "name": "Charles Darwin",
+        "subtitle": "Twenty years of silence, then a letter from the tropics",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "In June 1858, a package reached a quiet house in the Kent countryside. Inside was a letter from Alfred Russel Wallace, a naturalist collecting birds and insects on Ternate, a small island on the far side of the world. Wallace had an idea about how new species arise, and he wanted an opinion. Charles Darwin read it and was stunned. The idea was his own. He had been working on it for twenty years, telling only a few close friends."
+          },
+          {
+            "kind": "h2",
+            "text": "The boy who hated blood"
+          },
+          {
+            "kind": "p",
+            "text": "Darwin’s father was a doctor and sent him to Edinburgh at sixteen to become one. It did not take. Surgery was done without anesthetic then, and Charles fled an operation on a child and never went back. His father tried again, sending him to Cambridge to train as a country clergyman. Charles spent his time there collecting beetles. Once, with a rare beetle in each hand and a third in sight, he popped one into his mouth to free a hand. It squirted a liquid that burned his tongue, and he lost two of the three."
+          },
+          {
+            "kind": "p",
+            "text": "A botany professor, John Henslow, saw more in him than beetles. In 1831 Henslow put his name forward for an unpaid post: companion and naturalist to the captain of HMS Beagle, a small ship about to survey the coast of South America. Darwin was 22. His father thought it a waste of time, then gave in."
+          }
+        ]
+      },
+      "boxes": [
+        {
+          "person": "gregor-mendel",
+          "name": "Gregor Mendel",
+          "label": "Try this",
+          "text": "Take two coins. Heads is Y, tails is y. Flip both together; that is one seed. Two tails means a green seed. Do it 40 times and keep a tally. You should get about 10 greens, and the rest yellow. Mendel did the same thing, except his coins were pea plants and he flipped them 8,000 times."
+        },
+        {
+          "person": "charles-darwin",
+          "name": "Charles Darwin",
+          "label": "Look around you",
+          "text": "Dog breeds show selection at work with a human doing the choosing, which biologists call artificial selection. Every Great Dane and every Chihuahua descends from wolves, shaped by people picking which puppies to keep. Darwin began his book with domestic plants and animals, pigeons above all, for the same reason. If people can do this in thousands of years, nature has had millions of years."
+        }
+      ],
+      "hooks": [
+        {
+          "person": "jane-goodall",
+          "name": "Jane Goodall",
+          "text": "One morning in late 1960, on a steep hillside above Lake Tanganyika, a young woman crouched in the grass and watched a chimpanzee she had named David Greybeard."
+        },
+        {
+          "person": "mary-anning",
+          "name": "Mary Anning",
+          "text": "In December 1823 a young woman searching the shore below the cliffs at Lyme Regis found a skeleton nearly three meters long."
+        },
+        {
+          "person": "antonie-van-leeuwenhoek",
+          "name": "Antonie van Leeuwenhoek",
+          "text": "In 1683 a cloth merchant in Delft scraped the white film from between his own teeth, mixed it with a drop of clean rainwater and put a speck of it in front of a metal plate no bigger than a playing card."
+        },
+        {
+          "person": "james-watson-and-francis-crick",
+          "name": "James Watson and Francis Crick",
+          "text": "On the morning of Saturday, February 28, 1953, a 24-year-old American sat in an office at the Cavendish Laboratory in Cambridge, pushing pieces of cardboard around a desk."
+        }
+      ],
+      "figures": [
+        {
+          "person": "e-o-wilson",
+          "name": "E. O. Wilson",
+          "caption": "A leafcutter nest is a farm. The leaves are compost, the fungus is the crop, and the colony tends it like a field.",
+          "alt": "Cross-section of a leafcutter ant nest: a column of workers carrying leaf pieces down an entrance, chambers containing spongy gray fungus gardens tended by small workers, and a separate refuse chamber",
+          "src": "src/assets/figures/v5-10-wilson-1.png"
+        }
+      ],
+      "cover": "src/assets/covers/vol-5.jpg",
+      "people": [
+        {
+          "chapter": "01-darwin",
+          "slug": "charles-darwin",
+          "name": "Charles Darwin",
+          "people": [
+            "Charles Darwin"
+          ],
+          "subtitle": "Twenty years of silence, then a letter from the tropics",
+          "bigIdea": "Living things change over generations because the ones that fit their surroundings best leave the most offspring.",
+          "lifespan": "1809–1882"
+        },
+        {
+          "chapter": "02-mendel",
+          "slug": "gregor-mendel",
+          "name": "Gregor Mendel",
+          "people": [
+            "Gregor Mendel"
+          ],
+          "subtitle": "The monk who counted about 28,000 pea plants",
+          "bigIdea": "Traits are passed on in separate units that do not blend, and they follow the rules of chance.",
+          "lifespan": "1822–1884"
+        },
+        {
+          "chapter": "03-goodall",
+          "slug": "jane-goodall",
+          "name": "Jane Goodall",
+          "people": [
+            "Jane Goodall"
+          ],
+          "subtitle": "The secretary who went to live with chimpanzees",
+          "bigIdea": "Chimpanzees make tools, have personalities and pass habits down the generations. The line between us and them is thinner than anyone thought.",
+          "lifespan": "1934–2025"
+        },
+        {
+          "chapter": "04-carson",
+          "slug": "rachel-carson",
+          "name": "Rachel Carson",
+          "people": [
+            "Rachel Carson"
+          ],
+          "subtitle": "The writer who heard the birds go quiet",
+          "bigIdea": "A poison sprayed on a field does not stay there. It climbs the food chain and ends up in the eagle, and in you.",
+          "lifespan": "1907–1964"
+        },
+        {
+          "chapter": "05-linnaeus",
+          "slug": "carl-linnaeus",
+          "name": "Carl Linnaeus",
+          "people": [
+            "Carl Linnaeus"
+          ],
+          "subtitle": "The man who gave every living thing two names",
+          "bigIdea": "Sort all of life into nested groups, and give every species one name of two words that works in every language.",
+          "lifespan": "1707–1778"
+        },
+        {
+          "chapter": "06-mcclintock",
+          "slug": "barbara-mcclintock",
+          "name": "Barbara McClintock",
+          "people": [
+            "Barbara McClintock"
+          ],
+          "subtitle": "The woman who watched genes jump in a cornfield",
+          "bigIdea": "Genes are not nailed to one spot on a chromosome. Some of them move, and when they land they can switch other genes on and off.",
+          "lifespan": "1902–1992"
+        },
+        {
+          "chapter": "07-humboldt",
+          "slug": "alexander-von-humboldt",
+          "name": "Alexander von Humboldt",
+          "people": [
+            "Alexander von Humboldt"
+          ],
+          "subtitle": "The man who climbed a volcano and saw the whole planet",
+          "bigIdea": "Climate, soil, plants, animals and people are one connected system. Change one and the others move.",
+          "lifespan": "1769–1859"
+        },
+        {
+          "chapter": "08-wallace",
+          "slug": "alfred-russel-wallace",
+          "name": "Alfred Russel Wallace",
+          "people": [
+            "Alfred Russel Wallace"
+          ],
+          "subtitle": "The collector who lost everything at sea and started again",
+          "bigIdea": "Where an animal lives tells you where it came from. Barriers such as deep water and high mountains divide the living world into regions.",
+          "lifespan": "1823–1913"
+        },
+        {
+          "chapter": "09-leeuwenhoek",
+          "slug": "antonie-van-leeuwenhoek",
+          "name": "Antonie van Leeuwenhoek",
+          "people": [
+            "Antonie van Leeuwenhoek"
+          ],
+          "subtitle": "The cloth merchant who found a zoo in his own mouth",
+          "bigIdea": "A drop of water and a scraping from your teeth are full of living things too small to see, and your own blood is full of tiny living cells.",
+          "lifespan": "1632–1723"
+        },
+        {
+          "chapter": "10-wilson",
+          "slug": "e-o-wilson",
+          "name": "E. O. Wilson",
+          "people": [
+            "E. O. Wilson"
+          ],
+          "subtitle": "The boy with one good eye who learned to speak ant",
+          "bigIdea": "An ant colony acts like one animal with thousands of bodies, run by smells. Understanding it tells you how societies work, and why life needs room.",
+          "lifespan": "1929–2021"
+        },
+        {
+          "chapter": "11-fossey",
+          "slug": "dian-fossey",
+          "name": "Dian Fossey",
+          "people": [
+            "Dian Fossey"
+          ],
+          "subtitle": "The woman who lived alone in the mountain forest",
+          "bigIdea": "Gorillas are shy, gentle family animals, and the way to learn about them is to behave like one.",
+          "lifespan": "1932–1985"
+        },
+        {
+          "chapter": "12-carver",
+          "slug": "george-washington-carver",
+          "name": "George Washington Carver",
+          "people": [
+            "George Washington Carver"
+          ],
+          "subtitle": "The plant doctor who taught the South to rest its soil",
+          "bigIdea": "Peanuts and beans carry bacteria in their roots that pull fertilizer out of the air. Plant them between cotton crops and worn-out land comes back.",
+          "lifespan": "c. 1864–1943"
+        },
+        {
+          "chapter": "13-margulis",
+          "slug": "lynn-margulis",
+          "name": "Lynn Margulis",
+          "people": [
+            "Lynn Margulis"
+          ],
+          "subtitle": "The biologist who found bacteria living inside you",
+          "bigIdea": "The power plants inside your cells were once free-living bacteria. Complex life began when one cell swallowed another and did not digest it.",
+          "lifespan": "1938–2011"
+        },
+        {
+          "chapter": "14-morgan",
+          "slug": "thomas-hunt-morgan",
+          "name": "Thomas Hunt Morgan",
+          "people": [
+            "Thomas Hunt Morgan"
+          ],
+          "subtitle": "The skeptic who found a white-eyed fly",
+          "bigIdea": "Genes sit in a line along chromosomes, and you can map where each one is by breeding fruit flies.",
+          "lifespan": "1866–1945"
+        },
+        {
+          "chapter": "15-maathai",
+          "slug": "wangari-maathai",
+          "name": "Wangari Maathai",
+          "people": [
+            "Wangari Maathai"
+          ],
+          "subtitle": "The woman whose movement planted tens of millions of trees",
+          "bigIdea": "Forests help hold the soil on slopes and keep rain soaking in. Where they are cut, soil washes away and streams often suffer; planting trees can help bring them back.",
+          "lifespan": "1940–2011"
+        },
+        {
+          "chapter": "16-attenborough",
+          "slug": "david-attenborough",
+          "name": "David Attenborough",
+          "people": [
+            "David Attenborough"
+          ],
+          "subtitle": "The man who showed the whole planet to the whole planet",
+          "bigIdea": "Film the living world honestly, with the science right and the wonder left in, and people will care what happens to it.",
+          "lifespan": "born 1926"
+        },
+        {
+          "chapter": "17-hooke",
+          "slug": "robert-hooke",
+          "name": "Robert Hooke",
+          "people": [
+            "Robert Hooke"
+          ],
+          "subtitle": "The man who drew a flea the size of a cat",
+          "bigIdea": "Put a lens between your eye and the world and there is a second world underneath, full of structure nobody had suspected. He named its building blocks cells.",
+          "lifespan": "1635–1703"
+        },
+        {
+          "chapter": "18-anning",
+          "slug": "mary-anning",
+          "name": "Mary Anning",
+          "people": [
+            "Mary Anning"
+          ],
+          "subtitle": "The girl who dug sea monsters out of a crumbling cliff",
+          "bigIdea": "The layers in a cliff are pages of the Earth’s history, and the bones in them belong to animals that no longer exist.",
+          "lifespan": "1799–1847"
+        },
+        {
+          "chapter": "19-watson-crick",
+          "slug": "james-watson-and-francis-crick",
+          "name": "James Watson and Francis Crick",
+          "people": [
+            "James Watson",
+            "Francis Crick"
+          ],
+          "subtitle": "Two men, a borrowed photograph and a twisted ladder",
+          "bigIdea": "DNA is a twisted ladder whose rungs come in matched pairs, so each half can rebuild the other. That is how living things copy themselves.",
+          "lifespan": "1928–2025 and 1916–2004"
+        },
+        {
+          "chapter": "20-turner",
+          "slug": "charles-henry-turner",
+          "name": "Charles Henry Turner",
+          "people": [
+            "Charles Henry Turner"
+          ],
+          "subtitle": "The high-school teacher who proved that insects can learn",
+          "bigIdea": "Insects are not little machines. Turner found evidence that bees see color, that moths hear, that cockroaches learn mazes and that ants steer by sight.",
+          "lifespan": "1867–1923"
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "chapters": 20,
+      "peopleCount": 20,
+      "totals": {
+        "words": 20669,
+        "figures": 4
+      },
+      "excerpt": {
+        "words": 1247,
+        "figures": 1,
+        "textShare": 0.0603
+      },
+      "intro": {
+        "heading": "BEFORE YOU START",
+        "paragraphs": [
+          "I had one wish for this book: that by the last page you would want to know more about medicine, not less."
+        ]
+      },
+      "opening": {
+        "person": "ignaz-semmelweis",
+        "name": "Ignaz Semmelweis",
+        "subtitle": "The doctor who found the killer on his own hands",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "In the spring of 1847, a young Hungarian doctor came back from a vacation in Venice to the Vienna General Hospital and learned that his friend was dead. Jakob Kolletschka, a professor of forensic medicine, had been performing an autopsy when a student’s scalpel slipped and cut his finger. The infection spread up his arm, and then to the linings of his chest, his belly and his brain. He died of it."
+          },
+          {
+            "kind": "p",
+            "text": "Ignaz Semmelweis read the autopsy report on his friend and went cold. He knew those findings. He saw them several times a week on the bodies of young mothers from his own ward, women who had given birth, developed a raging fever within days and died of childbed fever. Kolletschka had never given birth. What he had in common with the mothers was a wound, and something from a corpse that had gotten into it."
+          },
+          {
+            "kind": "h2",
+            "text": "Two doors, two death rates"
+          },
+          {
+            "kind": "p",
+            "text": "The maternity hospital in Vienna was one of the biggest in the world, and it had two clinics side by side. The first was run by doctors and medical students, the second by midwives. Women were sent to one or the other depending on the day they arrived. In the doctors’ clinic, in a bad month, nearly one mother in five died of childbed fever. In the midwives’ clinic, next door, with the same food and the same air, it was usually around one in thirty."
+          },
+          {
+            "kind": "p",
+            "text": "Women begged on their knees to be admitted to the second clinic. Some gave birth in the street on the way to the hospital rather than go through the first door, and those women, Semmelweis noticed, hardly ever got the fever at all."
+          }
+        ]
+      },
+      "boxes": [
+        {
+          "person": "william-harvey",
+          "name": "William Harvey",
+          "label": "Try this",
+          "text": "Find your pulse at your wrist and count the beats in one minute. Each beat pushes out about 70 milliliters of blood, roughly a third of a cup. Multiply: a pulse of 70 moves about 5 liters a minute, which is all the blood an adult has. Your blood makes a complete circuit in a minute or less, and your heart pumps something like 7,000 liters a day."
+        },
+        {
+          "person": "virginia-apgar",
+          "name": "Virginia Apgar",
+          "label": "Try this",
+          "text": "Doctors remember the five checks with the letters of her name. Appearance (color), Pulse (heart rate), Grimace (does the baby react to a poke or a tickle of the nose), Activity (muscle tone), Respiration (breathing). Score a healthy newborn: pink body but bluish hands, 1; heart over 100 a minute, 2; cries when poked, 2; arms and legs moving, 2; strong cry, 2. Total: 9."
+        }
+      ],
+      "hooks": [
+        {
+          "person": "alexander-fleming",
+          "name": "Alexander Fleming",
+          "text": "In September 1928, by the usual telling, a Scottish bacteriologist came back from his summer vacation to a cluttered laboratory at St. Mary’s Hospital in London."
+        },
+        {
+          "person": "helen-taussig",
+          "name": "Helen Taussig",
+          "text": "On November 29, 1944, a baby girl named Eileen Saxon lay on an operating table at Johns Hopkins Hospital in Baltimore."
+        },
+        {
+          "person": "jonas-salk",
+          "name": "Jonas Salk",
+          "text": "In the summer of 1952, American parents kept their children indoors."
+        },
+        {
+          "person": "florence-nightingale",
+          "name": "Florence Nightingale",
+          "text": "On November 4, 1854, thirty-eight nurses and the woman leading them stepped off a boat at Scutari, across the water from Constantinople."
+        }
+      ],
+      "figures": [
+        {
+          "person": "andreas-vesalius",
+          "name": "Andreas Vesalius",
+          "caption": "A modern drawing in the style of the muscle men in Vesalius’s book. He had the body drawn in layers, from skin to bone, so a reader could follow a dissection without a knife.",
+          "alt": "A simplified version of a Vesalian “muscle man” plate: a standing figure seen from the front with the skin removed, major muscle groups labeled (chest, shoulder, upper arm, thigh, calf), posed in a landscape",
+          "src": "src/assets/figures/v6-10-vesalius-1.png"
+        }
+      ],
+      "cover": "src/assets/covers/vol-6.jpg",
+      "people": [
+        {
+          "chapter": "01-fleming",
+          "slug": "alexander-fleming",
+          "name": "Alexander Fleming",
+          "people": [
+            "Alexander Fleming"
+          ],
+          "subtitle": "The untidy laboratory that saved millions",
+          "bigIdea": "A common mold makes a substance that kills bacteria and leaves human cells alone.",
+          "lifespan": "1881–1955"
+        },
+        {
+          "chapter": "02-jenner",
+          "slug": "edward-jenner",
+          "name": "Edward Jenner",
+          "people": [
+            "Edward Jenner"
+          ],
+          "subtitle": "The country doctor who listened to the milkmaids",
+          "bigIdea": "Show the body something harmless that looks like a deadly germ, and it learns to fight the real thing. Every vaccine since works this way.",
+          "lifespan": "1749–1823"
+        },
+        {
+          "chapter": "03-nightingale",
+          "slug": "florence-nightingale",
+          "name": "Florence Nightingale",
+          "people": [
+            "Florence Nightingale"
+          ],
+          "subtitle": "The nurse who beat the army with a diagram",
+          "bigIdea": "Count the deaths, work out the rate and draw it so a general can see it in one glance. Numbers save lives.",
+          "lifespan": "1820–1910"
+        },
+        {
+          "chapter": "04-salk",
+          "slug": "jonas-salk",
+          "name": "Jonas Salk",
+          "people": [
+            "Jonas Salk"
+          ],
+          "subtitle": "The summer the swimming pools reopened",
+          "bigIdea": "A virus killed with chemicals keeps its shape, so the body can learn to fight it without ever being infected.",
+          "lifespan": "1914–1995"
+        },
+        {
+          "chapter": "05-hippocrates",
+          "slug": "hippocrates",
+          "name": "Hippocrates",
+          "people": [
+            "Hippocrates"
+          ],
+          "subtitle": "The doctors who wrote down their failures",
+          "bigIdea": "Disease has natural causes. Watch the patient, write down what you see and learn from what happens.",
+          "lifespan": "c. 460–370 BC"
+        },
+        {
+          "chapter": "06-blackwell",
+          "slug": "elizabeth-blackwell",
+          "name": "Elizabeth Blackwell",
+          "people": [
+            "Elizabeth Blackwell"
+          ],
+          "subtitle": "Admitted to medical school as a joke",
+          "bigIdea": "Half of all patients are women, and many of them would rather be treated by one. In 1849 the United States had exactly one woman with a medical degree.",
+          "lifespan": "1821–1910"
+        },
+        {
+          "chapter": "07-lister",
+          "slug": "joseph-lister",
+          "name": "Joseph Lister",
+          "people": [
+            "Joseph Lister"
+          ],
+          "subtitle": "The surgeon who went to war against the invisible",
+          "bigIdea": "Wounds go bad because living germs get into them. Kill the germs and the wound heals.",
+          "lifespan": "1827–1912"
+        },
+        {
+          "chapter": "08-apgar",
+          "slug": "virginia-apgar",
+          "name": "Virginia Apgar",
+          "people": [
+            "Virginia Apgar"
+          ],
+          "subtitle": "Five checks, ten points, one minute",
+          "bigIdea": "Give every newborn the same five quick checks and a score out of ten, so nobody has to guess how a baby is doing.",
+          "lifespan": "1909–1974"
+        },
+        {
+          "chapter": "09-harvey",
+          "slug": "william-harvey",
+          "name": "William Harvey",
+          "people": [
+            "William Harvey"
+          ],
+          "subtitle": "The king’s doctor who did the arithmetic on blood",
+          "bigIdea": "The heart is a pump, and the blood goes round and round. Count your pulse, do Harvey’s math and see why.",
+          "lifespan": "1578–1657"
+        },
+        {
+          "chapter": "10-vesalius",
+          "slug": "andreas-vesalius",
+          "name": "Andreas Vesalius",
+          "people": [
+            "Andreas Vesalius"
+          ],
+          "subtitle": "The student who stole a skeleton by night",
+          "bigIdea": "If you want to know what is inside a human body, open one and look. Do not take a dead Greek’s word for it.",
+          "lifespan": "1514–1564"
+        },
+        {
+          "chapter": "11-williams",
+          "slug": "daniel-hale-williams",
+          "name": "Daniel Hale Williams",
+          "people": [
+            "Daniel Hale Williams"
+          ],
+          "subtitle": "The barber’s son who stitched the sac around a beating heart",
+          "bigIdea": "The chest is not off-limits. A surgeon with clean hands and steady nerves can mend a wound next to a beating heart.",
+          "lifespan": "1856–1931"
+        },
+        {
+          "chapter": "12-barnard",
+          "slug": "christiaan-barnard",
+          "name": "Christiaan Barnard",
+          "people": [
+            "Christiaan Barnard"
+          ],
+          "subtitle": "Eighteen days with another person’s heart",
+          "bigIdea": "A heart can be moved from one body to another and beat on. The hard part is persuading the new body to let it stay.",
+          "lifespan": "1922–2001"
+        },
+        {
+          "chapter": "13-semmelweis",
+          "slug": "ignaz-semmelweis",
+          "name": "Ignaz Semmelweis",
+          "people": [
+            "Ignaz Semmelweis"
+          ],
+          "subtitle": "The doctor who found the killer on his own hands",
+          "bigIdea": "Doctors were carrying death from the autopsy room to the maternity ward on their hands. Washing them cut the deaths sharply.",
+          "lifespan": "1818–1865"
+        },
+        {
+          "chapter": "14-drew",
+          "slug": "charles-drew",
+          "name": "Charles Drew",
+          "people": [
+            "Charles Drew"
+          ],
+          "subtitle": "The man who taught blood to travel",
+          "bigIdea": "Take the cells out of blood and the yellow liquid left behind can be stored, shipped and given to almost anyone in an emergency.",
+          "lifespan": "1904–1950"
+        },
+        {
+          "chapter": "15-taussig",
+          "slug": "helen-taussig",
+          "name": "Helen Taussig",
+          "people": [
+            "Helen Taussig"
+          ],
+          "subtitle": "The deaf doctor who listened to hearts with her fingers",
+          "bigIdea": "Many “blue babies” are blue because too little blood reaches the lungs. Build a detour and send more.",
+          "lifespan": "1898–1986"
+        },
+        {
+          "chapter": "16-crumpler",
+          "slug": "rebecca-lee-crumpler",
+          "name": "Rebecca Lee Crumpler",
+          "people": [
+            "Rebecca Lee Crumpler"
+          ],
+          "subtitle": "The doctor whose face nobody remembers",
+          "bigIdea": "Teach a mother how to keep her children well and you have done more than a dozen doctors who arrive when they are sick.",
+          "lifespan": "1831–1895"
+        },
+        {
+          "chapter": "17-cushing",
+          "slug": "harvey-cushing",
+          "name": "Harvey Cushing",
+          "people": [
+            "Harvey Cushing"
+          ],
+          "subtitle": "The surgeon who made the brain a place you could go",
+          "bigIdea": "Brain surgery kills when it is fast and bloody. Go slow, stop every bleed, write everything down, and most patients live.",
+          "lifespan": "1869–1939"
+        },
+        {
+          "chapter": "18-ehrlich",
+          "slug": "paul-ehrlich",
+          "name": "Paul Ehrlich",
+          "people": [
+            "Paul Ehrlich"
+          ],
+          "subtitle": "Hundreds of tries for one magic bullet",
+          "bigIdea": "A drug can be a bullet that hits the germ and misses the patient. You find it by testing, and testing, and testing.",
+          "lifespan": "1854–1915"
+        },
+        {
+          "chapter": "19-galen",
+          "slug": "galen",
+          "name": "Galen",
+          "people": [
+            "Galen"
+          ],
+          "subtitle": "The gladiators’ doctor who was believed for 1,300 years, and wrong",
+          "bigIdea": "Experiment on the living body to find out what each part does. Then, unfortunately, write it all down so well that nobody checks it for a thousand years.",
+          "lifespan": "c. AD 129–216"
+        },
+        {
+          "chapter": "20-ibn-sina",
+          "slug": "ibn-sina",
+          "name": "Ibn Sina (Avicenna)",
+          "people": [
+            "Ibn Sina (Avicenna)"
+          ],
+          "subtitle": "The teenager who cured a king and wrote the book Europe studied for 500 years",
+          "bigIdea": "A medicine is only proven when it is tested, on people, in the right way. He wrote some of the first rules.",
+          "lifespan": "c. 980–1037"
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "chapters": 20,
+      "peopleCount": 20,
+      "totals": {
+        "words": 19994,
+        "figures": 16
+      },
+      "excerpt": {
+        "words": 1299,
+        "figures": 1,
+        "textShare": 0.065
+      },
+      "intro": {
+        "heading": "BEFORE YOU START",
+        "paragraphs": [
+          "Engineers are the people who make ideas stand up. A scientist can tell you that a cable is strong in tension and a stone pillar is strong in compression. An engineer has to hang a road across a river with them, and then watch a hundred thousand people walk over it on opening day. If the arithmetic is wrong, everyone knows by lunchtime. I find that thrilling, and I hope by the end of this book you will too."
+        ]
+      },
+      "opening": {
+        "person": "isambard-kingdom-brunel",
+        "name": "Isambard Kingdom Brunel",
+        "subtitle": "The engineer who believed bigger was cheaper",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "On January 12, 1828, the Thames broke into the tunnel being dug beneath it. The resident engineer, a twenty-one-year-old named Isambard Kingdom Brunel, was swept off his feet by an immense wave of water. Six workers drowned. Brunel was carried up a shaft by the flood and pulled out alive, badly hurt. He was sent away to recover, first to the seaside at Brighton and then to Clifton, near Bristol."
+          },
+          {
+            "kind": "p",
+            "text": "In 1829, Bristol announced a competition for a bridge across the Avon Gorge, a chasm with a river seventy-five meters below. Brunel entered. His design was chosen in 1831. It was the beginning of a career in which almost nothing he built was ordinary, and almost everything was larger than anyone had tried before."
+          },
+          {
+            "kind": "h2",
+            "text": "The father’s son"
+          },
+          {
+            "kind": "p",
+            "text": "Brunel’s father, Marc, was a French engineer who had fled the Revolution and settled in England. He gave the boy his own middle name, Isambard, to go with his mother’s family name, Kingdom, taught him drawing and geometry at home, and sent him to school in France. There Isambard studied under Breguet, one of the most famous clockmakers in Paris, learning how precise a machine could be. Then he came home to work for his father in the mud under the Thames."
+          },
+          {
+            "kind": "p",
+            "text": "The tunnel was Marc’s great project, but it taught the son something that stayed with him. Water, rock and money all have to be managed at once. When the tunnel flooded, the company ran out of cash and the works stopped for about seven years. Brunel never forgot that an engineer who ignores the budget soon has no project at all."
+          }
+        ]
+      },
+      "boxes": [
+        {
+          "person": "fazlur-rahman-khan",
+          "name": "Fazlur Rahman Khan",
+          "label": "Try this",
+          "text": "Hold an empty drink can by its ends and try to bend it. Now ask an adult to cut a strip of the same aluminum from another can (the cut edges are sharp, so wear gloves), hold it flat and bend it. Same metal, same thickness. The can resists because its metal is far from the center line of the bend. Many of Khan’s tallest buildings are that can, standing on end."
+        },
+        {
+          "person": "wernher-von-braun",
+          "name": "Wernher von Braun",
+          "label": "Try this",
+          "text": "Blow up a balloon and let it go. The air rushes out the back and the balloon shoots forward, in a vacuum or not. Now sit on a skateboard on a smooth, flat floor and throw a heavy bag of books away from you. You roll the other way. You have just built a rocket, with the bag as exhaust."
+        }
+      ],
+      "hooks": [
+        {
+          "person": "emily-warren-roebling",
+          "name": "Emily Warren Roebling",
+          "text": "In May 1883, shortly before the president of the United States came to open it, a carriage rolled onto the new bridge across the East River."
+        },
+        {
+          "person": "sergei-korolev",
+          "name": "Sergei Korolev",
+          "text": "On the night of October 4, 1957, a polished metal ball the size of a beach ball, with four long whip antennas, separated from the top of a rocket launched from Kazakhstan and began to circle the Earth once every ninety-six minutes."
+        },
+        {
+          "person": "lillian-gilbreth",
+          "name": "Lillian Gilbreth",
+          "text": "In a kitchen around 1930, a woman set out to make a strawberry shortcake and every step she took was counted."
+        },
+        {
+          "person": "granville-woods",
+          "name": "Granville Woods",
+          "text": "In the 1880s, one of the deadliest things about a railway was that nobody could talk to a train once it had left the station."
+        }
+      ],
+      "figures": [
+        {
+          "person": "emily-warren-roebling",
+          "name": "Emily Warren Roebling",
+          "caption": "The cables pull, the towers push, and the road simply hangs.",
+          "alt": "Side view of a suspension bridge with arrows: cables in tension (pulling), towers in compression (pushing down), vertical hangers holding the deck, anchorages at each end",
+          "src": "src/assets/figures/v7-05-roebling-1.png"
+        }
+      ],
+      "cover": "src/assets/covers/vol-7.jpg",
+      "people": [
+        {
+          "chapter": "01-ik-brunel",
+          "slug": "isambard-kingdom-brunel",
+          "name": "Isambard Kingdom Brunel",
+          "people": [
+            "Isambard Kingdom Brunel"
+          ],
+          "subtitle": "The engineer who believed bigger was cheaper",
+          "bigIdea": "Double a ship’s size and its cargo grows eight times while its drag grows only about four. Build big.",
+          "lifespan": "1806–1859"
+        },
+        {
+          "chapter": "02-eiffel",
+          "slug": "gustave-eiffel",
+          "name": "Gustave Eiffel",
+          "people": [
+            "Gustave Eiffel"
+          ],
+          "subtitle": "The man who let the wind draw his tower",
+          "bigIdea": "Shape a tall structure so the wind’s push is met by its own spread, and iron can stand 300 meters high.",
+          "lifespan": "1832–1923"
+        },
+        {
+          "chapter": "03-watt",
+          "slug": "james-watt",
+          "name": "James Watt",
+          "people": [
+            "James Watt"
+          ],
+          "subtitle": "The repairman who noticed where the heat was going",
+          "bigIdea": "Keep the cylinder hot and cool the steam somewhere else. The engine burns a third to a quarter of the coal.",
+          "lifespan": "1736–1819"
+        },
+        {
+          "chapter": "04-khan",
+          "slug": "fazlur-rahman-khan",
+          "name": "Fazlur Rahman Khan",
+          "people": [
+            "Fazlur Rahman Khan"
+          ],
+          "subtitle": "The engineer who turned skyscrapers into tubes",
+          "bigIdea": "Make the outside walls do the work. A hollow tube resists wind far better than a frame of columns.",
+          "lifespan": "1929–1982"
+        },
+        {
+          "chapter": "05-roebling",
+          "slug": "emily-warren-roebling",
+          "name": "Emily Warren Roebling",
+          "people": [
+            "Emily Warren Roebling"
+          ],
+          "subtitle": "The woman who carried the Brooklyn Bridge in her head",
+          "bigIdea": "Cables pull, towers push. Give each material the job it is good at and you can hang a road across a river.",
+          "lifespan": "1843–1903"
+        },
+        {
+          "chapter": "06-von-braun",
+          "slug": "wernher-von-braun",
+          "name": "Wernher von Braun",
+          "people": [
+            "Wernher von Braun"
+          ],
+          "subtitle": "The rocket builder who worked for two flags",
+          "bigIdea": "A rocket does not push against the air. It throws hot gas backward, and the gas throws the rocket forward.",
+          "lifespan": "1912–1977"
+        },
+        {
+          "chapter": "07-stephenson",
+          "slug": "george-stephenson",
+          "name": "George Stephenson",
+          "people": [
+            "George Stephenson"
+          ],
+          "subtitle": "The pitman who could not read until he was eighteen",
+          "bigIdea": "Replace the big boiler flue with twenty-five small tubes and the fire gets about four times as much surface to heat the water.",
+          "lifespan": "1781–1848"
+        },
+        {
+          "chapter": "08-gilbreth",
+          "slug": "lillian-gilbreth",
+          "name": "Lillian Gilbreth",
+          "people": [
+            "Lillian Gilbreth"
+          ],
+          "subtitle": "The mother of twelve who counted every step",
+          "bigIdea": "Film a job, break it into its smallest motions, and throw away the ones that do nothing.",
+          "lifespan": "1878–1972"
+        },
+        {
+          "chapter": "09-korolev",
+          "slug": "sergei-korolev",
+          "name": "Sergei Korolev",
+          "people": [
+            "Sergei Korolev"
+          ],
+          "subtitle": "The prisoner whose name was a state secret",
+          "bigIdea": "Throw something fast enough sideways and it falls around the Earth forever. That is an orbit.",
+          "lifespan": "1907–1966"
+        },
+        {
+          "chapter": "10-smeaton",
+          "slug": "john-smeaton",
+          "name": "John Smeaton",
+          "people": [
+            "John Smeaton"
+          ],
+          "subtitle": "The man who built a lighthouse like an oak tree",
+          "bigIdea": "Lock every stone into its neighbors and a tower of blocks becomes one solid thing that the sea cannot pull apart.",
+          "lifespan": "1724–1792"
+        },
+        {
+          "chapter": "11-ayrton",
+          "slug": "hertha-ayrton",
+          "name": "Hertha Ayrton",
+          "people": [
+            "Hertha Ayrton"
+          ],
+          "subtitle": "The woman who found out why the lights hissed",
+          "bigIdea": "Small whirlpools of fluid can build the ripples on a beach, and she hoped well-aimed pulses of air could push lingering poison gas out of a trench or dugout.",
+          "lifespan": "1854–1923"
+        },
+        {
+          "chapter": "12-shannon",
+          "slug": "claude-shannon",
+          "name": "Claude Shannon",
+          "people": [
+            "Claude Shannon"
+          ],
+          "subtitle": "The juggler who measured information",
+          "bigIdea": "Every message, picture or song can be counted in yes-or-no answers. One answer is a bit.",
+          "lifespan": "1916–2001"
+        },
+        {
+          "chapter": "13-rillieux",
+          "slug": "norbert-rillieux",
+          "name": "Norbert Rillieux",
+          "people": [
+            "Norbert Rillieux"
+          ],
+          "subtitle": "The engineer who boiled sugar with used steam",
+          "bigIdea": "Steam rising off one boiling pan still carries almost all its heat. Catch it and use it to boil the next pan.",
+          "lifespan": "1806–1894"
+        },
+        {
+          "chapter": "14-ford",
+          "slug": "henry-ford",
+          "name": "Henry Ford",
+          "people": [
+            "Henry Ford"
+          ],
+          "subtitle": "The farm boy who made the work come to the worker",
+          "bigIdea": "Keep the worker still and move the car past him. Twelve and a half hours of assembly became ninety-three minutes.",
+          "lifespan": "1863–1947"
+        },
+        {
+          "chapter": "15-marc-brunel",
+          "slug": "marc-isambard-brunel",
+          "name": "Marc Isambard Brunel",
+          "people": [
+            "Marc Isambard Brunel"
+          ],
+          "subtitle": "The refugee who, the story goes, learned tunneling from a worm",
+          "bigIdea": "Dig a little, line the hole behind you, push forward. A shipworm does it in wood; a shield does it under a river.",
+          "lifespan": "1769–1849"
+        },
+        {
+          "chapter": "16-woods",
+          "slug": "granville-woods",
+          "name": "Granville Woods",
+          "people": [
+            "Granville Woods"
+          ],
+          "subtitle": "The inventor who talked to a moving train",
+          "bigIdea": "A changing current in one wire stirs a current in a nearby wire without touching it. That gap can carry a message to a train at full speed.",
+          "lifespan": "1856–1910"
+        },
+        {
+          "chapter": "17-richards",
+          "slug": "ellen-swallow-richards",
+          "name": "Ellen Swallow Richards",
+          "people": [
+            "Ellen Swallow Richards"
+          ],
+          "subtitle": "The chemist who mapped a whole state’s dirty water",
+          "bigIdea": "Salt in a river tells you how far you are from the sea. Too much salt tells you someone’s sewage is in it.",
+          "lifespan": "1842–1911"
+        },
+        {
+          "chapter": "18-diesel",
+          "slug": "rudolf-diesel",
+          "name": "Rudolf Diesel",
+          "people": [
+            "Rudolf Diesel"
+          ],
+          "subtitle": "The engine that lights its own fire, and the man who vanished at sea",
+          "bigIdea": "Squeeze air hard enough and it gets hot enough to set fuel alight by itself. The harder the squeeze, the less fuel is wasted.",
+          "lifespan": "1858–1913"
+        },
+        {
+          "chapter": "19-visvesvaraya",
+          "slug": "mokshagundam-visvesvaraya",
+          "name": "Mokshagundam Visvesvaraya",
+          "people": [
+            "Mokshagundam Visvesvaraya"
+          ],
+          "subtitle": "The engineer whose birthday is Engineers’ Day",
+          "bigIdea": "A dam turns four months of monsoon into twelve months of water, and a gate can open itself with no one watching.",
+          "lifespan": "1861–1962"
+        },
+        {
+          "chapter": "20-de-forest",
+          "slug": "lee-de-forest",
+          "name": "Lee de Forest",
+          "people": [
+            "Lee de Forest"
+          ],
+          "subtitle": "The man who put a gate in a beam of electrons",
+          "bigIdea": "A tiny voltage on a wire grid can throttle a large flow of electrons. A weak signal becomes a strong one.",
+          "lifespan": "1873–1961"
+        }
+      ]
+    }
+  ]
+}

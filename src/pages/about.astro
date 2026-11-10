@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, VOLUMES, TOTALS } from '../data/site';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, ID } from '../lib/schema';
+
+const title = 'About Famous in STEM and the Author, Javier Sanz';
+const description = `Famous in STEM is a series of seven short-biography books by Javier Sanz: ${TOTALS.people} people in ${TOTALS.chapters} true chapters, written for curious readers 13 and up.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'About', url: '/about/' }];
+const jsonld = graph(websiteNode(), authorNode(), seriesNode(), breadcrumbNode(crumbs), webPageNode('/about/', title, description, { '@type': 'AboutPage', about: [{ '@id': ID.series }, { '@id': ID.author }] }));
+---
+<Base title={title} description={description} path="/about/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v4)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">About</span></li></ol></nav>
+      <p class="kicker">About</p>
+      <h1 id="t" style="max-width:18ch">Science is a story about people.</h1>
+      <p class="lede">Famous in STEM tells it that way: one person, one true moment and one big idea per chapter.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap-narrow prose">
+      <h2 class="mt-0">The series</h2>
+      <p>
+        Famous in STEM is a series of seven nonfiction books, each devoted to one field: physics, mathematics, computing, chemistry, biology, medicine and engineering. Together they tell the true stories of {TOTALS.people} people in {TOTALS.chapters} chapters, from Archimedes and Ibn Sina to Katherine Johnson, Tu Youyou and Tim Berners-Lee.
+      </p>
+      <p>
+        Every chapter opens with a real scene from the person’s life, explains one real idea in plain words, and usually includes something to try, to notice or to think about. The books are written for readers 13 and up, and for anyone who would rather meet science through people than through a textbook.
+      </p>
+      <h2>The 2026 editions</h2>
+      <p>
+        For 2026 every chapter was rewritten and checked against published sources, new illustrations were drawn to explain the science, and the seven covers were redesigned as one set. Where a famous anecdote rests on a single account, the books say so instead of passing legend off as fact.
+      </p>
+      <h2>The author</h2>
+      <p>
+        {SITE.author} is the author of the Famous in STEM series and of other nonfiction books, including <em>500 Careers and Salaries</em> and <em>200 Jobs Explained</em>. Every title is listed on the <a href={SITE.authorStore} rel="external">Amazon author page</a>.
+      </p>
+      <h2>The books</h2>
+      <ul>
+        {VOLUMES.map((v) => <li><a href={v.url}>Vol. {v.n}: {v.title}</a>, {v.tagline.charAt(0).toLowerCase() + v.tagline.slice(1)}</li>)}
+      </ul>
+      <p style="margin-top:2rem"><a class="btn" href={SITE.seriesPage} rel="external" data-asin="B0CBN56CKM" style="--accent:var(--v1);color:var(--navy-950)"><Icon name="cart" />See the series on Amazon</a></p>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

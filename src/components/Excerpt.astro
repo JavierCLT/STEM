@@ -1,0 +1,23 @@
+---
+import BuyButtons from './BuyButtons.astro';
+import type { Volume } from '../data/site';
+interface Props { vol: Volume; headingId?: string }
+const { vol, headingId } = Astro.props;
+const person = vol.people.find((p) => p.slug === vol.opening.person)!;
+---
+<article class="page-excerpt" data-vol={vol.n} aria-labelledby={headingId}>
+  <h3 class="chapter-name" id={headingId}>{person.name}</h3>
+  <p class="chapter-sub">{person.subtitle}</p>
+  <div class="factbox">
+    <p><b>Lived:</b> {person.lifespan}</p>
+    <p><b>Big idea:</b> {person.bigIdea}</p>
+  </div>
+  {vol.opening.blocks.map((b) => (b.kind === 'h2' ? <h3>{b.text}</h3> : <p>{b.text}</p>))}
+  <div class="fade" aria-hidden="true"></div>
+  <div class="continue">
+    <p>The chapter goes on. So do {vol.chapters - 1} more.</p>
+    <div class="btn-row" style="justify-content:center">
+      <BuyButtons vol={vol} on="light" />
+    </div>
+  </div>
+</article>

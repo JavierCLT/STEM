@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import BookCard from '../components/BookCard.astro';
+import SeriesCard from '../components/SeriesCard.astro';
+import { VOLUMES } from '../data/site';
+---
+<Base title="Page not found | Famous in STEM" description="This page does not exist. Browse the seven Famous in STEM books instead." path="/404/" noindex>
+  <section class="book-hero" style="--accent:var(--v6)">
+    <div class="wrap" style="padding-block:clamp(3rem,2rem + 4vw,5rem)">
+      <p class="kicker">404</p>
+      <h1 style="max-width:18ch">This page has gone missing.</h1>
+      <p class="lede">Even Fleming lost track of a dish now and then. Try one of the books instead, or go to the <a href="/" style="color:#fff">home page</a>.</p>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="wrap book-grid">{VOLUMES.map((v) => <BookCard vol={v} />)}<SeriesCard /></div>
+  </section>
+</Base>

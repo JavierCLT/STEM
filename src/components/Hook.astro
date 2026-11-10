@@ -1,0 +1,12 @@
+---
+import type { Volume } from '../data/site';
+interface Props { vol: Volume; hook: { person: string; name: string; text: string } }
+const { vol, hook } = Astro.props;
+---
+<a class="hook" href={`${vol.url}#${hook.person}`} data-vol={vol.n}>
+  <blockquote>{hook.text}</blockquote>
+  <footer>
+    <span><b>{hook.name}</b>First line of the chapter · Vol. {vol.n}, {vol.title}</span>
+    <span class="go" aria-hidden="true">Who? →</span>
+  </footer>
+</a>

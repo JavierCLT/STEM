@@ -1,0 +1,203 @@
+---
+import { getImage, Picture } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Cover from '../../components/Cover.astro';
+import BuyButtons from '../../components/BuyButtons.astro';
+import BookCard from '../../components/BookCard.astro';
+import Excerpt from '../../components/Excerpt.astro';
+import Activity from '../../components/Activity.astro';
+import Hook from '../../components/Hook.astro';
+import PersonCard from '../../components/PersonCard.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { SITE, VOLUMES, SERIES_FAQ, amazonUrl, type Volume } from '../../data/site';
+import { img } from '../../lib/images';
+import { graph, websiteNode, authorNode, seriesNode, bookNode, breadcrumbNode, webPageNode, faqNode, ID } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return VOLUMES.map((vol) => ({ params: { slug: vol.slug }, props: { vol } }));
+}
+interface Props { vol: Volume }
+const { vol } = Astro.props;
+
+const coverJpg = await getImage({ src: img(vol.cover), width: 600, format: 'jpg' });
+const coverUrl = new URL(coverJpg.src, SITE.url).href;
+const others = VOLUMES.filter((v) => v.n !== vol.n);
+const faq = [
+  ...vol.faq,
+  { q: `Do I need to read the other Famous in STEM books first?`, a: `No. ${vol.title} is Volume ${vol.n} of seven, and every volume stands on its own. Each chapter does too, so readers can start with whoever interests them most.` },
+  SERIES_FAQ[1],
+  SERIES_FAQ[4],
+];
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'The books', url: '/books/' },
+  { name: vol.title, url: vol.url },
+];
+const title = `${vol.seoTitle} | Book for Teens`;
+const jsonld = graph(
+  websiteNode(),
+  authorNode(),
+  seriesNode(),
+  bookNode(vol, coverUrl),
+  breadcrumbNode(crumbs),
+  webPageNode(vol.url, title, vol.seoDescription, { mainEntity: { '@id': ID.book(vol) }, primaryImageOfPage: coverUrl, breadcrumb: undefined }),
+  faqNode(faq),
+);
+const multi = vol.peopleCount !== vol.chapters;
+---
+<Base
+  title={title}
+  description={vol.seoDescription}
+  path={vol.url}
+  image={`/og/${vol.slug}.jpg`}
+  imageAlt={`Cover of ${vol.fullTitle} by Javier Sanz`}
+  jsonld={jsonld}
+  vol={vol.n}
+  ogType="book"
+>
+  <section class="book-hero" aria-labelledby="book-title">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb" style="padding-top:1.5rem">
+        <ol>{crumbs.map((c, i) => <li>{i < crumbs.length - 1 ? <a href={c.url}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}</ol>
+      </nav>
+    </div>
+    <div class="wrap book-hero-grid">
+      <div class="cover-wrap">
+        <Cover vol={vol} sizes="(max-width: 760px) 62vw, 360px" widths={[240, 360, 480, 720]} eager transition />
+      </div>
+      <div>
+        <p class="kicker">Famous in STEM · Volume {vol.n}</p>
+        <h1 id="book-title">{vol.title}</h1>
+        <p class="tagline">{vol.tagline}</p>
+        <p class="lede">{vol.pitch[0]}</p>
+        <BuyButtons vol={vol} />
+        <p class="buy-note">
+          Also see <a href={amazonUrl(vol.asin.paperback!)} rel="external" data-asin={vol.asin.paperback}>all formats on Amazon</a>, including hardcover where available.
+        </p>
+        <ul class="meta-pills">
+          <li>{vol.chapters} chapters{multi && `, ${vol.peopleCount} people`}</li>
+          <li>Ages 13+</li>
+          <li>Read in any order</li>
+          <li>2026 edition</li>
+          <li>By {SITE.author}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="about-title">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <p class="kicker">About this book</p>
+        <h2 id="about-title" class="h-sub" style="font-size:var(--step-3)">{vol.hook}</h2>
+        <p class="lede">{vol.pitch[1]}</p>
+      </div>
+      <figure class="figure" style="background:var(--card)">
+        <blockquote style="margin:0;font-family:var(--font-book);font-size:1.12rem;line-height:1.65;color:#222">
+          {vol.intro.paragraphs.map((p) => <p>{p}</p>)}
+        </blockquote>
+        <figcaption style="text-align:left;font-style:normal;font-family:var(--font-ui);font-size:0.9rem;color:var(--ink-3)">
+          From “{vol.intro.heading.charAt(0) + vol.intro.heading.slice(1).toLowerCase()},” the book’s introduction
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" id="inside" aria-labelledby="inside-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Who’s inside</p>
+          <h2 id="inside-title" class="h-section">All {vol.peopleCount} {vol.short}{multi && `, in ${vol.chapters} chapters`}</h2>
+          <p class="lede">Each chapter title and big idea, exactly as they appear in the book.</p>
+        </div>
+      </div>
+      <ol class="people" style="list-style:none">
+        {vol.people.map((p) => <PersonCard person={p} vol={vol.n} />)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="read" aria-labelledby="read-title">
+    <div class="wrap">
+      <div class="section-head" style="justify-content:center;text-align:center">
+        <div style="margin-inline:auto">
+          <p class="kicker">Free sample</p>
+          <h2 id="read-title" class="h-section">Read the opening of {vol.opening.name}’s chapter</h2>
+          <p class="lede" style="margin-inline:auto">The first pages, word for word.</p>
+        </div>
+      </div>
+      <Excerpt vol={vol} headingId="excerpt-name" />
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="from-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">From the book</p>
+          <h2 id="from-title" class="h-section">See it, try it, think about it</h2>
+        </div>
+      </div>
+      <div class="grid-2" style="align-items:start">
+        {vol.figures.map((f) => (
+          <figure class="figure">
+            <Picture src={img(f.src)} alt={f.alt} widths={[400, 700, 1000, 1400]} sizes="(max-width: 760px) 92vw, 580px" formats={['avif', 'webp']} fallbackFormat="webp" />
+            <figcaption>{f.caption}<span class="credit">Illustration from the chapter on {f.name}</span></figcaption>
+          </figure>
+        ))}
+        <div class="stack" style="--stack:1.25rem">
+          {vol.boxes.map((b) => <Activity vol={vol} box={b} showBook={false} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" aria-labelledby="hooks-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">First lines</p>
+          <h2 id="hooks-title" class="h-section">How other chapters begin</h2>
+        </div>
+      </div>
+      <div class="hooks">
+        {vol.hooks.map((h) => <Hook vol={vol} hook={h} />)}
+      </div>
+      <div class="btn-row" style="margin-top:1.5rem">
+        <BuyButtons vol={vol} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap-narrow">
+      <p class="kicker">Questions</p>
+      <h2 id="faq-title" class="h-section">About {vol.title}</h2>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="more-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">More in the series</p>
+          <h2 id="more-title" class="h-section">Six more fields to explore</h2>
+        </div>
+      </div>
+      <div class="book-grid cols-3">
+        {others.map((v) => <BookCard vol={v} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+
+  <div class="buybar" data-vol={vol.n}>
+    <div class="t">{vol.title}<span>Famous in STEM · Vol. {vol.n}</span></div>
+    <a class="btn btn-sm" href={amazonUrl(vol.asin.paperback!)} rel="external" data-asin={vol.asin.paperback} data-format="paperback"><Icon name="cart" />Buy on Amazon</a>
+  </div>
+</Base>

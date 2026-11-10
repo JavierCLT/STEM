@@ -1,0 +1,112 @@
+---
+import Base from '../layouts/Base.astro';
+import Activity from '../components/Activity.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, VOLUMES, PEOPLE, TOTALS } from '../data/site';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, faqNode, ID } from '../lib/schema';
+
+const WOMEN = [
+  'Marie Curie', 'Ada Lovelace', 'Katherine Johnson', 'Grace Hopper', 'Rosalind Franklin', 'Alice Ball', 'Dorothy Hodgkin',
+  'Gertrude Elion', 'Tu Youyou', 'Stephanie Kwolek', 'Jane Goodall', 'Rachel Carson', 'Barbara McClintock', 'Dian Fossey',
+  'Lynn Margulis', 'Wangari Maathai', 'Mary Anning', 'Florence Nightingale', 'Elizabeth Blackwell', 'Virginia Apgar',
+  'Helen Taussig', 'Rebecca Lee Crumpler', 'Emily Warren Roebling', 'Lillian Gilbreth', 'Hertha Ayrton', 'Ellen Swallow Richards',
+];
+const women = PEOPLE.filter((p) => WOMEN.includes(p.name));
+const boxes = VOLUMES.flatMap((v) => v.boxes.map((b) => ({ vol: v, box: b })));
+const tryThis = boxes.filter((b) => b.box.label !== 'Think about it');
+const think = boxes.filter((b) => b.box.label === 'Think about it');
+
+const faq = [
+  { q: 'What reading level are the books?', a: 'They are written for readers 13 and up in plain, direct language: short paragraphs, everyday words, and every technical term explained the first time it appears. Strong younger readers can manage them, and they work as a read-aloud.' },
+  { q: 'How long is a chapter?', a: 'A few pages: short enough to read in one sitting or one class period, long enough to cover a person’s life and one real idea.' },
+  { q: 'Are the books accurate enough to cite?', a: 'The 2026 editions were fact-checked chapter by chapter against published sources, and uncertain anecdotes are flagged in the text (“the story goes”). For a report, students should treat a chapter as a starting point and follow up with the sources their teacher requires.' },
+  { q: 'Do the books include women and scientists from around the world?', a: `Yes. The series includes ${women.length} women and people from Europe, the Americas, Africa, the Middle East and Asia, across more than 2,500 years, from Pythagoras and Ibn Sina to Tu Youyou and Wangari Maathai.` },
+];
+const title = 'Famous in STEM for Teachers and Homeschool: Biography Project Ideas';
+const description = `How to use the Famous in STEM books in class or at home: ${TOTALS.people} short STEM biographies with dates, big ideas, hands-on activities and discussion questions. For ages 13+.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'For teachers', url: '/for-teachers/' }];
+const jsonld = graph(websiteNode(), authorNode(), seriesNode(), breadcrumbNode(crumbs), webPageNode('/for-teachers/', title, description, { about: { '@id': ID.series }, audience: { '@type': 'EducationalAudience', educationalRole: 'teacher' } }), faqNode(faq));
+---
+<Base title={title} description={description} path="/for-teachers/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v5)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">For teachers</span></li></ol></nav>
+      <p class="kicker">For teachers and homeschool</p>
+      <h1 id="t" style="max-width:20ch">{TOTALS.people} STEM biographies, ready for class.</h1>
+      <p class="lede">One person per chapter, with dates, a big idea in a sentence, a true story and an activity. Here is how the books fit into lessons, projects and discussions.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="grid-2">
+        <article class="audience" data-vol="1">
+          <div class="ico"><Icon name="school" /></div>
+          <h2 class="h-sub">Biography projects</h2>
+          <p>Let students choose from <a href="/people/">all {TOTALS.people} people</a>, filtered by field. Each chapter gives the dates, the big idea and a story to build a report or presentation on.</p>
+        </article>
+        <article class="audience" data-vol="3">
+          <div class="ico"><Icon name="flask" /></div>
+          <h2 class="h-sub">Hands-on science</h2>
+          <p>“Try this” and “Look around you” boxes turn each idea into a quick experiment or observation with everyday materials.</p>
+        </article>
+        <article class="audience" data-vol="2">
+          <div class="ico"><Icon name="bulb" /></div>
+          <h2 class="h-sub">Discussion starters</h2>
+          <p>“Think about it” boxes raise questions with no single right answer: about ethics, scale, risk and what counts as proof.</p>
+        </article>
+        <article class="audience" data-vol="6">
+          <div class="ico"><Icon name="layers" /></div>
+          <h2 class="h-sub">Across subjects</h2>
+          <p>Each life sits in its history: wars, revolutions, empires and migrations. The series links science with history, geography and ethics.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="try-title">
+    <div class="wrap">
+      <div class="section-head"><div>
+        <p class="kicker">Hands on</p>
+        <h2 id="try-title" class="h-section">Activities from the books</h2>
+        <p class="lede">Word for word, as printed. Activities with heat or flame say to do them with an adult.</p>
+      </div></div>
+      <div class="activity-grid">{tryThis.map(({ vol, box }) => <Activity vol={vol} box={box} />)}</div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="think-title">
+    <div class="wrap">
+      <div class="section-head"><div>
+        <p class="kicker">Discussion</p>
+        <h2 id="think-title" class="h-section">Questions to think about</h2>
+      </div></div>
+      <div class="activity-grid">{think.map(({ vol, box }) => <Activity vol={vol} box={box} />)}</div>
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="women-title">
+    <div class="wrap">
+      <div class="section-head"><div>
+        <p class="kicker">Women in STEM</p>
+        <h2 id="women-title" class="h-section">{women.length} women across the series</h2>
+        <p class="lede">From a fossil hunter on the English coast to a Nobel-winning chemist in Beijing.</p>
+      </div></div>
+      <ul class="cloud">
+        {women.map((p) => <li data-vol={p.vol}><a href={`${p.volUrl}#${p.slug}`}>{p.name} <span class="muted">· {p.volTitle}</span></a></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap-narrow">
+      <p class="kicker">Questions</p>
+      <h2 id="faq-title" class="h-section">For educators</h2>
+      <Faq items={faq} openFirst />
+    </div>
+  </section>
+
+  <CtaBand title="Build a classroom shelf." text="Seven books, one for each field. Every volume stands on its own, so you can start with the subject you teach." />
+</Base>

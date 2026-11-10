@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import Cover from '../components/Cover.astro';
+import BuyButtons from '../components/BuyButtons.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, VOLUMES } from '../data/site';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, faqNode, ID } from '../lib/schema';
+
+const reasons: Record<number, { who: string; why: string }> = {
+  1: { who: 'asks how the universe works, watches space videos or likes taking things apart', why: 'From gravity and light to atoms and black holes, each chapter explains one law of nature through the person who found it.' },
+  2: { who: 'loves puzzles, codes, chess or patterns, or says they hate math but loves a good story', why: 'Code-breaking, infinity and prime numbers become stories, and many chapters end with a puzzle to try with a pencil.' },
+  3: { who: 'codes, games, builds websites or wants to start a company', why: 'The ideas under every phone and website (chips, compilers, the internet, search) told through the people who invented them.' },
+  4: { who: 'loves experiments, chemistry sets or anything that fizzes, glows or goes bang', why: 'Dynamite, the periodic table, DNA, plastics and Kevlar, with kitchen experiments like a red-cabbage color changer.' },
+  5: { who: 'loves animals, nature documentaries, hiking or fossils', why: 'Evolution, genes, chimpanzees, ants and the double helix, from Darwin and Mendel to Jane Goodall and David Attenborough.' },
+  6: { who: 'wants to be a doctor, nurse, vet or researcher, or is curious about the body', why: 'How vaccines, antibiotics, surgery and hand-washing began, often against fierce opposition, with activities like taking your own pulse.' },
+  7: { who: 'builds with LEGO, loves bridges, trains and rockets, or asks how things are made', why: 'Steam engines, towers, tunnels, skyscrapers and orbits, with hands-on ideas using a drink can, a balloon and paper.' },
+};
+const faq = [
+  { q: 'Which Famous in STEM book makes the best gift?', a: 'The one that matches what the reader already loves. Physics suits the “how does the universe work?” reader, Mathematical Masterminds the puzzle-lover, Tech Titans the coder, Explosive Chemists the experimenter, Brilliant Biologists the animal and nature lover, Medical Pioneers the future doctor and Extraordinary Engineers the builder.' },
+  { q: 'What age is the series best for?', a: 'Readers 13 and up, including adults. Strong younger readers who love science can enjoy them too: chapters are short and every idea is explained from scratch.' },
+  { q: 'Should I buy the whole set?', a: 'The books stand alone, so one is a complete gift. A set works well for a curious reader who likes several subjects, or for a classroom or homeschool shelf. All seven are listed on the series page on Amazon.' },
+  { q: 'Paperback or Kindle?', a: 'Paperback makes the better wrapped gift and is easy to lend; the drawings print crisply. Kindle editions are cheaper and arrive instantly, which helps for last-minute gifts.' },
+];
+const title = 'STEM Gifts for Teens: Which Famous in STEM Book to Give';
+const description = 'A quick gift guide: match a Famous in STEM book to the teen who loves space, puzzles, coding, experiments, animals, medicine or building. For readers 13 and up.';
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Gift guide', url: '/gift-guide/' }];
+const jsonld = graph(
+  websiteNode(),
+  authorNode(),
+  seriesNode(),
+  breadcrumbNode(crumbs),
+  webPageNode('/gift-guide/', title, description, {
+    about: { '@id': ID.series },
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Which Famous in STEM book to give',
+      itemListElement: VOLUMES.map((v) => ({ '@type': 'ListItem', position: v.n, name: `${v.title}: for the reader who ${reasons[v.n].who}`, url: new URL(v.url, SITE.url).href })),
+    },
+  }),
+  faqNode(faq),
+);
+---
+<Base title={title} description={description} path="/gift-guide/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v2)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Gift guide</span></li></ol></nav>
+      <p class="kicker">Gift guide</p>
+      <h1 id="t" style="max-width:19ch">A gift for the teen who always asks why.</h1>
+      <p class="lede">Seven books, seven interests. Find the reader below, and you have found the book. Each one is a complete, stand-alone gift; together they make a shelf.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap" style="display:grid;gap:1.25rem">
+      {VOLUMES.map((v) => (
+        <article class="gift" data-vol={v.n} id={v.slug}>
+          <a href={v.url} aria-label={`${v.title}: look inside`}><Cover vol={v} sizes="(max-width: 700px) 110px, 150px" widths={[110, 150, 220, 300]} /></a>
+          <div>
+            <p class="kicker">For the reader who…</p>
+            <h2>{reasons[v.n].who.charAt(0).toUpperCase() + reasons[v.n].who.slice(1)}</h2>
+            <p class="pickline"><a href={v.url}>{v.title}</a> <span>Famous in STEM, Vol. {v.n}</span></p>
+            <p>{reasons[v.n].why}</p>
+            <BuyButtons vol={v} size="sm" on="light" />
+          </div>
+        </article>
+      ))}
+      <article class="gift set" style="--accent:var(--v1)">
+        <div class="set-covers" aria-hidden="true">{VOLUMES.slice(0, 4).map((v) => <Cover vol={v} sizes="70px" widths={[70, 140]} alt="" />)}</div>
+        <div>
+          <p class="kicker">For the reader who loves all of it</p>
+          <h2>Give the whole series</h2>
+          <p>Seven books, from physics to engineering, that look great together on a shelf. All seven are on one page on Amazon.</p>
+          <a class="btn btn-sm" href={SITE.seriesPage} rel="external" data-asin="B0CBN56CKM"><Icon name="cart" />See the series on Amazon</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section paper-2" aria-labelledby="faq-title">
+    <div class="wrap-narrow">
+      <p class="kicker">Questions</p>
+      <h2 id="faq-title" class="h-section">Choosing a gift</h2>
+      <Faq items={faq} openFirst />
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .gift { display: grid; grid-template-columns: 150px 1fr; gap: clamp(1.25rem, 3vw, 2.25rem); align-items: center; padding: clamp(1.25rem, 2vw, 1.75rem); border-radius: var(--radius); background: var(--card); border: 1px solid var(--line-light); box-shadow: var(--shadow-card); border-left: 6px solid var(--accent); }
+  .gift h2 { font-size: var(--step-2); margin-bottom: 0.6rem; max-width: 34ch; }
+  .gift .kicker { margin-bottom: 0.5rem; }
+  .pickline { font-weight: 800; font-size: var(--step-1); margin-bottom: 0.4rem; }
+  .pickline a { color: var(--accent-ink); }
+  .pickline span { font-weight: 600; font-size: 0.85rem; color: var(--ink-3); margin-left: 0.4rem; }
+  .gift p { color: var(--ink-2); }
+  .set-covers { display: flex; }
+  .set-covers :global(.cover) { width: 70px; margin-left: -26px; }
+  .set-covers :global(.cover:first-child) { margin-left: 0; }
+  @media (max-width: 700px) { .gift { grid-template-columns: 1fr; } .gift > a { width: 110px; } }
+</style>

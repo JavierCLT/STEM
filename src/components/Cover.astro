@@ -1,0 +1,31 @@
+---
+import { Picture } from 'astro:assets';
+import { img } from '../lib/images';
+import type { Volume } from '../data/site';
+
+interface Props {
+  vol: Volume;
+  /** Rendered width range of the cover; drives srcset and sizes. */
+  sizes: string;
+  widths?: number[];
+  eager?: boolean;
+  class?: string;
+  transition?: boolean;
+  alt?: string;
+}
+const { vol, sizes, widths = [160, 240, 320, 480, 640], eager = false, class: cls, transition = false, alt } = Astro.props;
+const src = img(vol.cover);
+---
+<div class:list={['cover', cls]} style={transition ? `view-transition-name: cover-${vol.n}` : undefined}>
+  <Picture
+    src={src}
+    alt={alt ?? `Cover of ${vol.fullTitle} by Javier Sanz, showing a painted portrait of ${vol.coverFace}`}
+    widths={widths}
+    sizes={sizes}
+    formats={['avif', 'webp']}
+    quality={58}
+    loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : 'auto'}
+    decoding="async"
+  />
+</div>

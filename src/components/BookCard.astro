@@ -1,0 +1,25 @@
+---
+import Cover from './Cover.astro';
+import BuyButtons from './BuyButtons.astro';
+import type { Volume } from '../data/site';
+
+interface Props { vol: Volume; headingLevel?: 'h2' | 'h3' }
+const { vol, headingLevel = 'h3' } = Astro.props;
+const H = headingLevel;
+const names = vol.people.slice(0, 3).map((p) => p.name).join(', ');
+---
+<article class="book-card" data-vol={vol.n}>
+  <div class="shelf-bg">
+    <Cover vol={vol} sizes="150px" widths={[150, 300]} transition />
+  </div>
+  <div class="body">
+    <p class="vol">Vol. {vol.n} · {vol.field}</p>
+    <H><a href={vol.url}>{vol.title}</a></H>
+    <p class="tag">{vol.tagline}</p>
+    <p class="names">With {names} and {vol.peopleCount - 3} more</p>
+    <div class="actions">
+      <BuyButtons vol={vol} size="sm" on="light" formats={['paperback']} />
+      <a class="look" href={vol.url}>Look inside →</a>
+    </div>
+  </div>
+</article>

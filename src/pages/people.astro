@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import PersonCard from '../components/PersonCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, VOLUMES, PEOPLE, TOTALS } from '../data/site';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, ID } from '../lib/schema';
+import wiki from '../data/wikipedia.json';
+
+const title = `${TOTALS.people} Famous Scientists, Inventors and Engineers | Famous in STEM`;
+const description = `All ${TOTALS.people} people in the Famous in STEM books, with dates and their big idea in one sentence: scientists, mathematicians, inventors, doctors and engineers.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Who’s inside', url: '/people/' }];
+const jsonld = graph(
+  websiteNode(),
+  authorNode(),
+  seriesNode(),
+  breadcrumbNode(crumbs),
+  webPageNode('/people/', title, description, {
+    '@type': 'CollectionPage',
+    about: { '@id': ID.series },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: TOTALS.people,
+      itemListElement: PEOPLE.flatMap((p) => p.people).map((name, i) => {
+        const sameAs = (wiki as Record<string, string>)[name];
+        return { '@type': 'ListItem', position: i + 1, item: { '@type': 'Person', name, ...(sameAs ? { sameAs } : {}) } };
+      }),
+    },
+  }),
+);
+---
+<Base title={title} description={description} path="/people/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v5)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Who’s inside</span></li></ol></nav>
+      <p class="kicker">Who’s inside</p>
+      <h1 id="t" style="max-width:20ch">{TOTALS.people} people who changed how we understand the world.</h1>
+      <p class="lede">Every person in the series, with the chapter title and big idea from the book. Looking for someone to write a report about? Start here.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="filter" role="search">
+        <label for="q" class="sr-only">Search by name or idea</label>
+        <input id="q" type="search" placeholder="Search a name or an idea: “DNA”, “Curie”, “rocket”…" autocomplete="off" />
+        <div class="chips" role="group" aria-label="Filter by book">
+          <button type="button" aria-pressed="true" data-filter="all">All books</button>
+          {VOLUMES.map((v) => <button type="button" aria-pressed="false" data-filter={v.n} data-vol={v.n}><i></i>{v.field}</button>)}
+        </div>
+        <p class="count" aria-live="polite" id="count">Showing all {PEOPLE.length} chapters</p>
+      </div>
+      <ol class="people" id="people" style="list-style:none">
+        {PEOPLE.map((p) => <PersonCard person={p} vol={p.vol} showBook headingLevel="h2" />)}
+      </ol>
+      <p id="none" hidden class="lede" style="margin-top:2rem">No match. Try a shorter word, or <a href="#q">clear the search</a>.</p>
+    </div>
+  </section>
+
+  <CtaBand title="Found someone interesting?" text="Their full story is in the book. Every chapter is a short, true biography with the science explained." />
+</Base>
+
+<script is:inline>
+  (function () {
+    var q = document.getElementById('q');
+    var list = document.getElementById('people');
+    var items = Array.prototype.slice.call(list.children);
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chips button'));
+    var count = document.getElementById('count');
+    var none = document.getElementById('none');
+    var vol = 'all';
+    var text = items.map(function (li) { return li.textContent.toLowerCase(); });
+    function apply() {
+      var term = q.value.trim().toLowerCase();
+      var shown = 0;
+      items.forEach(function (li, i) {
+        var ok = (vol === 'all' || li.dataset.vol === vol) && (!term || text[i].indexOf(term) !== -1);
+        li.hidden = !ok;
+        if (ok) shown++;
+      });
+      count.textContent = shown === items.length ? 'Showing all ' + shown + ' chapters' : 'Showing ' + shown + ' of ' + items.length + ' chapters';
+      none.hidden = shown !== 0;
+    }
+    q.addEventListener('input', apply);
+    chips.forEach(function (b) {
+      b.addEventListener('click', function () {
+        vol = b.dataset.filter;
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === b)); });
+        apply();
+      });
+    });
+    none.querySelector('a').addEventListener('click', function (e) { e.preventDefault(); q.value = ''; vol = 'all'; chips.forEach(function (c, i) { c.setAttribute('aria-pressed', String(i === 0)); }); apply(); q.focus(); });
+  })();
+</script>

@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+import type { Volume } from '../data/site';
+interface Props { vol: Volume; box: { person: string; name: string; label: string; text: string }; showBook?: boolean }
+const { vol, box, showBook = true } = Astro.props;
+const icon = box.label === 'Try this' ? 'flask' : box.label === 'Look around you' ? 'eye' : 'bulb';
+---
+<article class="activity" data-vol={vol.n}>
+  <span class="label"><Icon name={icon} />{box.label}</span>
+  <p>{box.text}</p>
+  <footer>
+    From the chapter on <a href={`${vol.url}#${box.person}`}>{box.name}</a>{showBook && <>, in <a href={vol.url}>{vol.title}</a></>}
+  </footer>
+</article>

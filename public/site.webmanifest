@@ -1,0 +1,14 @@
+{
+  "name": "Famous in STEM",
+  "short_name": "Famous in STEM",
+  "description": "True stories of the people behind science, technology, engineering and math.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0f152d",
+  "theme_color": "#0f152d",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
