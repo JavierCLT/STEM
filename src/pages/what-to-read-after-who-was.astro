@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+import Cover from '../components/Cover.astro';
+import BuyButtons from '../components/BuyButtons.astro';
+import RecCard from '../components/RecCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, VOLUMES, PEOPLE, TOTALS } from '../data/site';
+import { WHO_WAS, WHO_WAS_MATCHES, NOT_IN_WHO_WAS, BRIDGE, CHECKED } from '../data/reading';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, faqNode, ID } from '../lib/schema';
+
+const vol = (n: number) => VOLUMES.find((v) => v.n === n)!;
+const person = (slug: string) => PEOPLE.find((p) => p.slug === slug)!;
+const missing = NOT_IN_WHO_WAS.map(person);
+const faq = [
+  { q: 'What age are the Who Was? books for?', a: `The publisher lists them for ${WHO_WAS.ages.toLowerCase()}. Each is a ${WHO_WAS.pages}-page illustrated biography of one person.` },
+  { q: 'What should my child read after the Who Was? books?', a: 'Keep the true stories, and step up in length and depth: narrative nonfiction for ages 10–14 such as Bomb by Steve Sheinkin, young readers’ editions such as Hidden Figures and The Disappearing Spoon, and, for readers who love science, the Famous in STEM books (13 and up), which give each field a whole book of short biographies with the science explained.' },
+  { q: 'Are there Who Was? books about scientists?', a: 'Yes, including Who Was Albert Einstein?, Who Was Marie Curie?, Who Was Isaac Newton?, Who Was Charles Darwin?, Who Was Jane Goodall?, Who Was Katherine Johnson? and Who Was Steve Jobs?. Each of those people also has a chapter in Famous in STEM.' },
+  { q: 'Is Famous in STEM part of the Who Was? series?', a: 'No. Famous in STEM is an independent series by Javier Sanz. Who Was? and Who HQ are published by Penguin Workshop, an imprint of Penguin Random House.' },
+];
+const title = 'What to Read After the Who Was? Books: Next Steps for Ages 11+';
+const description = 'Outgrown the Who Was? books? True-story books for the next step, including Famous in STEM for readers 13+, with a guide from each Who Was? scientist to the next book.';
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'After the Who Was? books', url: '/what-to-read-after-who-was/' }];
+const jsonld = graph(
+  websiteNode(),
+  authorNode(),
+  seriesNode(),
+  breadcrumbNode(crumbs),
+  webPageNode('/what-to-read-after-who-was/', title, description, {
+    about: { '@type': 'BookSeries', name: 'Who Was?', publisher: { '@type': 'Organization', name: 'Penguin Workshop' } },
+    mentions: { '@id': ID.series },
+  }),
+  faqNode(faq),
+);
+---
+<Base title={title} description={description} path="/what-to-read-after-who-was/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v2)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">After the Who Was? books</span></li></ol></nav>
+      <p class="kicker">Reading guide</p>
+      <h1 id="t" style="max-width:20ch">What to read after the Who Was? books.</h1>
+      <p class="lede">
+        The Who Was? series has more than {Math.floor(WHO_WAS.titles / 10) * 10} illustrated biographies, each about {WHO_WAS.pages} pages on one person, written for {WHO_WAS.ages.toLowerCase()}. When a reader is ready for more, here is where to go next, especially if the science and invention titles were their favorites.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="compare-title">
+    <div class="wrap">
+      <h2 id="compare-title" class="h-section">The next step up</h2>
+      <p class="lede" style="margin-bottom:1.5rem">How Famous in STEM differs from the Who Was? series, for families deciding what comes next.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Who Was? series</th><th>Famous in STEM</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Written for</th><td>{WHO_WAS.ages} (publisher)</td><td>Readers 13 and up</td></tr>
+            <tr><th scope="row">Each book</th><td>One person, about {WHO_WAS.pages} illustrated pages</td><td>20 to 27 people from one field, one short chapter each</td></tr>
+            <tr><th scope="row">Subjects</th><td>History, science, sports, the arts and more ({WHO_WAS.titles} titles)</td><td>Science, technology, engineering and math only: 7 books, {TOTALS.people} people</td></tr>
+            <tr><th scope="row">The science</th><td>Woven into the life story, with sidebars and a timeline</td><td>One idea per chapter explained step by step, usually with something to try, notice or think about</td></tr>
+            <tr><th scope="row">Publisher</th><td>{WHO_WAS.publisher}, since {WHO_WAS.began}</td><td>Independent, by {SITE.author}; 2026 editions</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small">Who Was? facts from the publisher’s series and title pages, checked {CHECKED}.</p>
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="map-title">
+    <div class="wrap">
+      <div class="section-head"><div>
+        <h2 id="map-title" class="h-section">If they loved…, read…</h2>
+        <p class="lede">The people in these Who Was? titles also have chapters in Famous in STEM, alongside 20 or more others from the same field.</p>
+      </div></div>
+      <div class="map">
+        {WHO_WAS_MATCHES.map((m) => {
+          const v = vol(m.vol);
+          return (
+            <article class="pair" data-vol={v.n}>
+              <div class="from">
+                <p class="tag">If they loved</p>
+                <ul>{m.titles.map((t) => <li><cite>{t.title}</cite> <a href={`${v.url}#${t.person}`} class="see">their chapter →</a></li>)}</ul>
+              </div>
+              <div class="to">
+                <a href={v.url} aria-label={`${v.title}: look inside`}><Cover vol={v} sizes="96px" widths={[96, 192]} /></a>
+                <div>
+                  <p class="tag">Read next</p>
+                  <h3><a href={v.url}>{v.title}</a></h3>
+                  <p>{v.tagline}</p>
+                  <BuyButtons vol={v} size="sm" on="light" formats={['paperback']} />
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" aria-labelledby="new-title">
+    <div class="wrap">
+      <div class="section-head"><div>
+        <h2 id="new-title" class="h-section">People they may not have met yet</h2>
+        <p class="lede">None of these has a book in the Who Was? series (checked {CHECKED}). Each has a chapter in Famous in STEM.</p>
+      </div></div>
+      <ul class="people" style="list-style:none">
+        {missing.map((p) => (
+          <li class="person" data-vol={p.vol}>
+            <h3>{p.name}</h3>
+            <span class="yrs">{p.lifespan}</span>
+            <p class="sub">{p.subtitle}</p>
+            <p class="in">In <a href={`${p.volUrl}#${p.slug}`}>Vol. {p.vol}: {p.volTitle}</a></p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="bridge-title">
+    <div class="wrap">
+      <div class="section-head"><div>
+        <h2 id="bridge-title" class="h-section">Other good next steps</h2>
+        <p class="lede">Award-winning true stories and illustrated books pitched between Who Was? and adult nonfiction. For older teens, see the <a href="/reading-list/">science reading list for teens</a>.</p>
+      </div></div>
+      <ol class="bridge">{BRIDGE.map((b) => <RecCard rec={b} />)}</ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="wrap-narrow">
+      <h2 id="faq-title" class="h-section">Questions</h2>
+      <Faq items={faq} openFirst />
+      <p class="muted small" style="margin-top:1.5rem">Who Was?, Who Is?, Where Is? and Who HQ are trademarks of Penguin Random House LLC. Famous in STEM is independent and not affiliated with Penguin Random House.</p>
+    </div>
+  </section>
+
+  <CtaBand title="Ready for the next step?" text="Famous in STEM gives each field of science a whole book of short, true stories, written for readers 13 and up." />
+</Base>
+
+<style>
+  .small { font-size: 0.85rem; margin-top: 0.75rem; }
+  .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--line-light); background: var(--card); }
+  table { width: 100%; border-collapse: collapse; min-width: 620px; }
+  th, td { text-align: left; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--line-light); vertical-align: top; }
+  thead th { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+  thead th:last-child { color: var(--v2-ink); }
+  tbody th { font-weight: 800; white-space: nowrap; }
+  tbody td:last-child { background: color-mix(in oklab, var(--v2) 7%, white); }
+  .map { display: grid; gap: 1rem; }
+  .pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 1.25rem; padding: 1.25rem; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line-light); border-left: 6px solid var(--accent); }
+  .tag { margin: 0 0 0.4rem; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink); }
+  .from ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+  .from cite { font-style: italic; font-weight: 650; }
+  .from .see { font-size: 0.85rem; color: var(--accent-ink); font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .to { display: grid; grid-template-columns: 96px 1fr; gap: 1rem; align-items: start; }
+  .to h3 { margin: 0 0 0.2rem; font-size: var(--step-1); }
+  .to h3 a { text-decoration: none; }
+  .to p { margin: 0 0 0.75rem; color: var(--ink-2); font-size: 0.95rem; }
+  .bridge { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 0.85rem; }
+  @media (max-width: 760px) { .pair { grid-template-columns: 1fr; } }
+</style>

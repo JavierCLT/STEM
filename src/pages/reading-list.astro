@@ -1,0 +1,139 @@
+---
+import Base from '../layouts/Base.astro';
+import Cover from '../components/Cover.astro';
+import BuyButtons from '../components/BuyButtons.astro';
+import RecCard from '../components/RecCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, VOLUMES } from '../data/site';
+import { SUBJECTS, COLLECTIVE, CHECKED, type Rec } from '../data/reading';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, faqNode, ID } from '../lib/schema';
+
+const vol = (n: number) => VOLUMES.find((v) => v.n === n)!;
+const count = SUBJECTS.reduce((s, x) => s + x.books.length, 0) + 1;
+const faq = [
+  { q: 'What are good science books for a 13-year-old?', a: 'Narrative nonfiction written for young adults is the easiest start: Bomb by Steve Sheinkin (ages 10–14), Charles and Emma by Deborah Heiligman (12 and up), The Code Book by Simon Singh (12 and up) and How We Got to the Moon by John Rocco (10 and up). The Famous in STEM books (13 and up) cover one field each in short, true chapters.' },
+  { q: 'What science books do high school students read?', a: 'Several adult books on this list are listed by their publishers for grades 9–12, including A Short History of Nearly Everything, The Immortal Life of Henrietta Lacks, Napoleon’s Buttons, The Poisoner’s Handbook and Rocket Boys.' },
+  { q: 'Are young readers’ editions worth it for teens?', a: 'For readers around 10 to 13, yes: Hidden Figures, The Disappearing Spoon and The Boy Who Harnessed the Wind all have young readers’ editions. Most teens of 14 and up can read the original editions.' },
+  { q: 'How were these books chosen?', a: `True stories a teenager can read alone, at least one per field, with the ages taken from each publisher and every award checked with the award body (last checked ${CHECKED}). One Famous in STEM volume is listed in each section because this is the series’ website; the other books are recommended on their own merits.` },
+];
+const title = 'Science Books for Teens: A Reading List by Subject (2026)';
+const description = `${count} true science books for teens 13 and up, by subject: physics, math, computing, chemistry, biology, medicine and engineering, with ages and awards checked.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Reading list', url: '/reading-list/' }];
+const bookItem = (r: Rec) => ({ '@type': 'Book', name: r.title, author: r.author.split(/ and |, /).map((n) => ({ '@type': 'Person', name: n.trim() })), publisher: { '@type': 'Organization', name: r.publisher }, datePublished: String(r.year) });
+const jsonld = graph(
+  websiteNode(),
+  authorNode(),
+  seriesNode(),
+  breadcrumbNode(crumbs),
+  webPageNode('/reading-list/', title, description, {
+    about: { '@type': 'Thing', name: 'Science books for teenagers' },
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Science books for teens by subject',
+      itemListElement: [
+        ...SUBJECTS.flatMap((s) => [...s.books.map(bookItem), { '@id': ID.book(vol(s.vol)) }]),
+        bookItem(COLLECTIVE),
+      ].map((item, i) => ({ '@type': 'ListItem', position: i + 1, item })),
+    },
+  }),
+  faqNode(faq),
+);
+---
+<Base title={title} description={description} path="/reading-list/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v1)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Reading list</span></li></ol></nav>
+      <p class="kicker">Reading list</p>
+      <h1 id="t" style="max-width:20ch">Science books for teens, by subject.</h1>
+      <p class="lede">True stories about science that a teenager can read alone, from award-winning young adult nonfiction to adult books often read in high school. Ages come from the publishers; awards were checked with the award bodies.</p>
+      <nav class="jump" aria-label="Subjects">
+        {SUBJECTS.map((s) => <a href={`#${s.id}`} data-vol={s.vol}><i></i>{s.name}</a>)}
+        <a href="#collective-biographies">Many scientists in one book</a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap" style="display:grid;gap:clamp(2.5rem,4vw,4rem)">
+      {SUBJECTS.map((s) => {
+        const v = vol(s.vol);
+        return (
+          <section id={s.id} data-vol={s.vol} class="subject" aria-labelledby={`${s.id}-h`}>
+            <div class="subject-head">
+              <h2 id={`${s.id}-h`} class="h-section">{s.name}</h2>
+              <p class="lede">{s.intro}</p>
+            </div>
+            <div class="subject-body">
+              <ol class="recs">{s.books.map((b) => <RecCard rec={b} />)}</ol>
+              <aside class="ours">
+                <p class="tag">From this site’s series</p>
+                <a href={v.url} aria-label={`${v.title}: look inside`}><Cover vol={v} sizes="120px" widths={[120, 240]} /></a>
+                <h3><a href={v.url}>{v.title}</a></h3>
+                <p class="meta">{v.fullTitle.split(':')[0]} · {v.chapters} short chapters · Ages 13+</p>
+                <p>{v.tagline}. {v.hook}</p>
+                <BuyButtons vol={v} size="sm" on="light" formats={['paperback']} />
+              </aside>
+            </div>
+          </section>
+        );
+      })}
+
+      <section id="collective-biographies" class="subject" aria-labelledby="cb-h">
+        <div class="subject-head">
+          <h2 id="cb-h" class="h-section">Many scientists in one book</h2>
+          <p class="lede">For readers who like to meet a lot of people quickly and pick a favorite.</p>
+        </div>
+        <ol class="recs">
+          <RecCard rec={COLLECTIVE} />
+          <li class="rec-ours">
+            <h3><a href="/books/">Famous in STEM (7 volumes)</a></h3>
+            <p>Seven books of short, true biographies, one per field, 161 people in all, for readers 13 and up. This is the series this website is about. <a href="/people/">See everyone in it</a>.</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </section>
+
+  <section class="section paper-2" aria-labelledby="faq-title">
+    <div class="wrap-narrow">
+      <h2 id="faq-title" class="h-section">Questions</h2>
+      <Faq items={faq} openFirst />
+      <p class="muted" style="margin-top:1.5rem">Last checked {CHECKED}. Spotted a change or a book we should add? Write to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. For younger readers, see <a href="/what-to-read-after-who-was/">what to read after the Who Was? books</a>.</p>
+      <details class="sources">
+        <summary>Sources for ages and awards</summary>
+        <ul>{[...SUBJECTS.flatMap((s) => s.books), COLLECTIVE].map((b) => <li><cite>{b.title.split(':')[0]}</cite>: <a href={b.source} rel="external nofollow">{new URL(b.source).hostname.replace('www.', '')}</a></li>)}</ul>
+      </details>
+    </div>
+  </section>
+
+  <CtaBand title="One book for each corner of STEM." text="Famous in STEM tells the true stories of 161 scientists, inventors, doctors and engineers in seven books for readers 13 and up." />
+</Base>
+
+<style>
+  .jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .jump a { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.85rem; border-radius: 999px; border: 1px solid var(--line-dark); text-decoration: none; font-weight: 650; font-size: 0.9rem; color: var(--on-dark); }
+  .jump a:hover { background: rgb(255 255 255 / 0.08); }
+  .jump i { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .subject { scroll-margin-top: 5rem; }
+  .subject-head { border-top: 4px solid var(--accent); padding-top: 1.25rem; margin-bottom: 1.5rem; }
+  .subject-head h2 { margin-bottom: 0.3rem; }
+  .subject-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.5rem; align-items: start; }
+  .recs { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.85rem; }
+  .ours { position: sticky; top: 5.5rem; padding: 1.25rem; border-radius: var(--radius); background: var(--navy-950); color: var(--on-dark); display: grid; gap: 0.6rem; justify-items: start; }
+  .ours .tag { margin: 0; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .ours :global(.cover) { width: 120px; }
+  .ours h3 { margin: 0.3rem 0 0; font-size: var(--step-1); }
+  .ours h3 a { color: #fff; text-decoration: none; }
+  .ours .meta { margin: 0; font-size: 0.8rem; color: var(--on-dark-2); }
+  .ours p { margin: 0; font-size: 0.92rem; color: var(--on-dark-2); }
+  .rec-ours { padding: 1.1rem 1.25rem; border-radius: 12px; background: var(--navy-950); color: var(--on-dark-2); }
+  .rec-ours h3 { font-size: 1.05rem; margin: 0 0 0.3rem; }
+  .rec-ours h3 a, .rec-ours a { color: #fff; }
+  .rec-ours p { margin: 0; }
+  .sources { margin-top: 1rem; font-size: 0.9rem; color: var(--ink-2); }
+  .sources summary { cursor: pointer; font-weight: 700; }
+  .sources ul { padding-left: 1.2rem; }
+  .sources a { color: var(--ink-2); }
+  @media (max-width: 900px) { .subject-body { grid-template-columns: 1fr; } .ours { position: static; } }
+</style>

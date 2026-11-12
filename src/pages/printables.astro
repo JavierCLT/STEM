@@ -1,0 +1,114 @@
+---
+import { Picture } from 'astro:assets';
+import fs from 'node:fs';
+import Base from '../layouts/Base.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Faq from '../components/Faq.astro';
+import { SITE, TOTALS } from '../data/site';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, faqNode, ID } from '../lib/schema';
+import worksheetImg from '../assets/printables/biography-project-worksheet.png';
+import posterImg from '../assets/printables/women-in-stem-timeline.png';
+
+const kb = (f: string) => Math.round(fs.statSync(`public/printables/${f}`).size / 1024);
+const items = [
+  {
+    id: 'biography-project',
+    name: 'STEM biography project worksheet',
+    file: 'biography-project-worksheet.pdf',
+    format: 'US Letter, 2 pages',
+    img: worksheetImg,
+    alt: 'Page 1 of the worksheet: questions about the person a student chose, from the moment that changed everything to three facts and their sources',
+    what: `Page 1 walks a student through a biography report: where the person grew up, the moment that changed everything, their big idea in the student’s own words, what stood in their way, how they proved it, what is different today, and three facts with sources. Page 2 lists all ${TOTALS.people} people in the Famous in STEM books by field, with their dates, to choose from.`,
+    use: 'Grades 7 to 12, homeschool, library programs and science clubs.',
+  },
+  {
+    id: 'women-in-stem-timeline',
+    name: 'Women who shaped STEM: timeline poster',
+    file: 'women-in-stem-timeline.pdf',
+    format: 'Tabloid, 11 × 17 inches, landscape',
+    img: posterImg,
+    alt: 'Timeline poster of 26 women in STEM in order of birth, from Mary Anning in 1799 to Wangari Maathai in 1940',
+    what: '26 scientists, mathematicians, doctors and engineers in order of birth, from Mary Anning (1799) to Wangari Maathai (1940), each with dates, field and a one-line hook from her chapter. Prints on 11 × 17 paper, or scaled down on letter paper.',
+    use: 'Classroom walls, Women’s History Month, and a quick way to choose a report subject.',
+  },
+];
+const faq = [
+  { q: 'Are the printables really free?', a: 'Yes. Print and copy them as often as you like for classroom, library and home use. No sign-up, no email address.' },
+  { q: 'Do students need the books to use the worksheet?', a: `No. The worksheet works with any biography source. Every person on page 2 also has a chapter in the Famous in STEM books, and their big idea is listed on the ${TOTALS.people}-person index on this site.` },
+  { q: 'Can I share the PDFs?', a: 'Please share a link to this page rather than the file, so others always get the latest version.' },
+];
+const title = 'Free STEM Printables: Biography Worksheet and Women in STEM Poster';
+const description = `Free printable STEM biography project worksheet (choose from ${TOTALS.people} scientists) and a women in STEM timeline poster. PDF, no sign-up, for classroom and home.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Free printables', url: '/printables/' }];
+const jsonld = graph(
+  websiteNode(),
+  authorNode(),
+  seriesNode(),
+  breadcrumbNode(crumbs),
+  webPageNode('/printables/', title, description, {
+    '@type': 'CollectionPage',
+    about: { '@id': ID.series },
+    hasPart: items.map((it) => ({
+      '@type': 'DigitalDocument',
+      name: it.name,
+      description: it.what,
+      encodingFormat: 'application/pdf',
+      url: new URL(`/printables/${it.file}`, SITE.url).href,
+      isAccessibleForFree: true,
+      author: { '@id': ID.author },
+      educationalUse: 'Classroom activity',
+      audience: { '@type': 'EducationalAudience', educationalRole: 'teacher' },
+    })),
+  }),
+  faqNode(faq),
+);
+---
+<Base title={title} description={description} path="/printables/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v5)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Free printables</span></li></ol></nav>
+      <p class="kicker">Free printables</p>
+      <h1 id="t" style="max-width:20ch">Free STEM printables for class and home.</h1>
+      <p class="lede">A biography project worksheet and a women-in-STEM timeline poster. PDF, free to print and copy, no sign-up.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap" style="display:grid;gap:2rem">
+      {items.map((it) => (
+        <article class="printable" id={it.id}>
+          <a href={`/printables/${it.file}`} class="thumb" aria-label={`Download ${it.name} (PDF)`}>
+            <Picture src={it.img} alt={it.alt} widths={[400, 700, 1100]} sizes="(max-width: 860px) 92vw, 520px" formats={['avif', 'webp']} />
+          </a>
+          <div>
+            <p class="kicker">{it.format} · PDF, {kb(it.file)} KB</p>
+            <h2>{it.name}</h2>
+            <p>{it.what}</p>
+            <p class="use"><strong>Good for:</strong> {it.use}</p>
+            <a class="btn" href={`/printables/${it.file}`} download style="--accent:var(--v5)">Download the PDF</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="faq-title">
+    <div class="wrap-narrow">
+      <h2 id="faq-title" class="h-section">Questions</h2>
+      <Faq items={faq} openFirst />
+      <p style="margin-top:1.5rem">More ideas for teachers: <a href="/for-teachers/" style="font-weight:700">using the books in class</a> · <a href="/people/" style="font-weight:700">all {TOTALS.people} people</a> · <a href="/reading-list/" style="font-weight:700">a science reading list for teens</a>.</p>
+    </div>
+  </section>
+
+  <CtaBand title="The stories behind every name." text="Each person on the worksheet and the poster has a short, true chapter in the Famous in STEM books." />
+</Base>
+
+<style>
+  .printable { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; padding: clamp(1.25rem, 2vw, 2rem); border-radius: var(--radius); background: var(--card); border: 1px solid var(--line-light); box-shadow: var(--shadow-card); }
+  .printable h2 { font-size: var(--step-3); }
+  .printable p { color: var(--ink-2); }
+  .printable .use { font-size: 0.95rem; }
+  .thumb { display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line-light); box-shadow: 0 12px 30px -16px rgb(20 24 41 / 0.4); transition: transform 200ms; }
+  .thumb:hover { transform: translateY(-3px); }
+  @media (max-width: 860px) { .printable { grid-template-columns: 1fr; } }
+</style>

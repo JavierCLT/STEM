@@ -1,0 +1,149 @@
+---
+import { getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Cover from '../components/Cover.astro';
+import Icon from '../components/Icon.astro';
+import { SITE, VOLUMES, TOTALS, amazonUrl } from '../data/site';
+import { img } from '../lib/images';
+import { graph, websiteNode, authorNode, seriesNode, breadcrumbNode, webPageNode, ID } from '../lib/schema';
+
+const covers = await Promise.all(
+  VOLUMES.map(async (v) => ({ v, file: await getImage({ src: img(v.cover), width: 1000, format: 'jpg', quality: 90 }) })),
+);
+const women = 26;
+const shortDesc = `Famous in STEM is a series of seven nonfiction books by ${SITE.author}. Each one tells the true stories of 20 to 27 people from one field of science, technology, engineering or math, in short chapters that open with a real moment from the person’s life and explain one big idea in plain language. For readers 13 and up.`;
+const longDesc = `${shortDesc} The seven volumes cover physics, mathematics, computing, chemistry, biology, medicine and engineering: ${TOTALS.people} people in ${TOTALS.chapters} chapters, from Archimedes and Ibn Sina to Katherine Johnson, Tu Youyou and Tim Berners-Lee, including ${women} women. Each chapter starts with a fact box (when the person lived and their big idea), and most include a hands-on “Try this,” “Look around you” or “Think about it” box. The 2026 editions were rewritten and fact-checked chapter by chapter, with 120 new illustrations. Every volume stands on its own.`;
+const angles = [
+  { t: 'For the teen who has outgrown picture-book biographies', d: 'Short, true chapters written for readers 13 and up, with the science explained, not skipped.' },
+  { t: `${women} women who shaped STEM`, d: 'From Mary Anning and Ada Lovelace to Katherine Johnson, Rosalind Franklin, Tu Youyou and Wangari Maathai.' },
+  { t: 'A gift matched to an interest', d: 'One book each for space and physics, puzzles, coding, experiments, animals, medicine and building.' },
+  { t: 'Free classroom printables', d: 'A biography-project worksheet with all 161 people to choose from, and a women-in-STEM timeline poster.' },
+];
+const title = 'Media Kit: Famous in STEM Book Series by Javier Sanz';
+const description = 'Press and media kit for the Famous in STEM books: descriptions, facts, cover downloads, author bio and contact for review copies, interviews and classroom sets.';
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Media kit', url: '/press/' }];
+const jsonld = graph(websiteNode(), authorNode(), seriesNode(), breadcrumbNode(crumbs), webPageNode('/press/', title, description, { about: [{ '@id': ID.series }, { '@id': ID.author }] }));
+---
+<Base title={title} description={description} path="/press/" jsonld={jsonld}>
+  <section class="book-hero" aria-labelledby="t" style="--accent:var(--v3)">
+    <div class="wrap" style="padding-block:clamp(2rem,1.5rem + 3vw,4rem)">
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Media kit</span></li></ol></nav>
+      <p class="kicker">Press and media</p>
+      <h1 id="t" style="max-width:18ch">Media kit</h1>
+      <p class="lede">Everything you need to write about, review or recommend Famous in STEM: descriptions, facts, covers and a contact for review copies.</p>
+      <div class="btn-row" style="margin-top:1.5rem">
+        <a class="btn" href={`mailto:${SITE.email}?subject=Famous%20in%20STEM%20review%20copy`}>Request a review copy</a>
+        <a class="btn btn-ghost" href="#covers">Download covers</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap split" style="align-items:start">
+      <div class="prose">
+        <h2 class="mt-0">In one line</h2>
+        <blockquote class="quote">{SITE.oneLine}</blockquote>
+        <h2>Short description</h2>
+        <p>{shortDesc}</p>
+        <h2>Long description</h2>
+        <p>{longDesc}</p>
+        <h2>Story angles</h2>
+        <ul>{angles.map((a) => <li><strong>{a.t}.</strong> {a.d}</li>)}</ul>
+      </div>
+      <aside class="facts">
+        <h2>Quick facts</h2>
+        <dl>
+          <div><dt>Series</dt><dd>Famous in STEM (7 volumes)</dd></div>
+          <div><dt>Author</dt><dd>{SITE.author}</dd></div>
+          <div><dt>Audience</dt><dd>Readers 13 and up</dd></div>
+          <div><dt>Inside</dt><dd>{TOTALS.chapters} chapters, {TOTALS.people} people, 120 illustrations</dd></div>
+          <div><dt>Editions</dt><dd>2026, rewritten and fact-checked</dd></div>
+          <div><dt>Formats</dt><dd>Paperback and Kindle; hardcover where available</dd></div>
+          <div><dt>Order</dt><dd>Any; every volume stands on its own</dd></div>
+          <div><dt>Contact</dt><dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd></div>
+        </dl>
+        <h3>About the author</h3>
+        <p>{SITE.authorBio} {SITE.authorWhy}</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="books-title">
+    <div class="wrap">
+      <h2 id="books-title" class="h-section">The seven books</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Vol.</th><th>Title</th><th>Field</th><th>Tagline</th><th>Paperback ASIN</th><th>Kindle ASIN</th></tr></thead>
+          <tbody>
+            {VOLUMES.map((v) => (
+              <tr data-vol={v.n}>
+                <td><span class="dot"></span>{v.n}</td>
+                <td><a href={v.url}>{v.title}</a></td>
+                <td>{v.field}</td>
+                <td>{v.tagline}</td>
+                <td><a href={amazonUrl(v.asin.paperback!)} rel="external">{v.asin.paperback}</a></td>
+                <td>{v.asin.kindle ? <a href={amazonUrl(v.asin.kindle)} rel="external">{v.asin.kindle}</a> : <span class="muted">on the paperback page</span>}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-top:1rem">Amazon series page: <a href={SITE.seriesPage} rel="external">{SITE.seriesPage}</a></p>
+    </div>
+  </section>
+
+  <section class="section-tight" id="covers" aria-labelledby="covers-title">
+    <div class="wrap">
+      <div class="section-head"><div>
+        <h2 id="covers-title" class="h-section">Cover downloads</h2>
+        <p class="lede">Front covers, 1000 × 1600 pixels. Free to use in reviews, articles, gift guides and reading lists about the books.</p>
+      </div></div>
+      <ul class="cover-grid">
+        {covers.map(({ v, file }) => (
+          <li data-vol={v.n}>
+            <Cover vol={v} sizes="(max-width: 700px) 40vw, 150px" widths={[150, 300]} />
+            <a class="btn btn-ink btn-sm" href={file.src} download={`famous-in-stem-vol-${v.n}-${v.slug}-cover.jpg`}>Vol. {v.n} cover (JPG)</a>
+          </li>
+        ))}
+        <li class="wide">
+          <img src="/og/home.jpg" alt="The seven Famous in STEM covers fanned out under the series name" width="1200" height="630" loading="lazy" />
+          <a class="btn btn-ink btn-sm" href="/og/home.jpg" download="famous-in-stem-series-banner.jpg">Series banner, 1200 × 630 (JPG)</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-tight paper-2" aria-labelledby="free-title">
+    <div class="wrap split">
+      <div>
+        <h2 id="free-title" class="h-section">Free resources to share</h2>
+        <p class="lede">Teachers and parents can print and copy these freely. Link to the page, not the file, so readers always get the latest version.</p>
+      </div>
+      <div class="btn-row"><a class="btn btn-ink" href="/printables/"><Icon name="arrow" />See the printables</a><a class="btn btn-ink" href="/reading-list/">Teen science reading list</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .quote { margin: 0; padding: 1rem 1.25rem; border-left: 4px solid var(--v3-ink); background: var(--card); border-radius: 0 10px 10px 0; font-family: var(--font-book); font-size: 1.12rem; line-height: 1.55; }
+  .facts { background: var(--card); border: 1px solid var(--line-light); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow-card); }
+  .facts h2 { font-size: var(--step-2); }
+  .facts h3 { font-size: var(--step-1); margin-top: 1.5rem; }
+  .facts dl { display: grid; gap: 0.5rem; margin: 0; }
+  .facts dl div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0.75rem; }
+  .facts dt { font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); padding-top: 0.2rem; }
+  .facts dd { margin: 0; }
+  .facts a { color: var(--v3-ink); font-weight: 700; }
+  .facts p { color: var(--ink-2); margin: 0; }
+  .table-wrap { overflow-x: auto; margin-top: 1rem; border-radius: var(--radius); border: 1px solid var(--line-light); background: var(--card); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 720px; }
+  th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--line-light); vertical-align: top; }
+  th { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+  td a { color: var(--accent-ink); font-weight: 700; }
+  td .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); margin-right: 0.5rem; }
+  .cover-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem 1.25rem; }
+  .cover-grid li { display: grid; gap: 0.75rem; justify-items: start; }
+  .cover-grid .wide { grid-column: span 2; }
+  .cover-grid .wide img { border-radius: 8px; box-shadow: var(--shadow-card); }
+  @media (max-width: 520px) { .cover-grid .wide { grid-column: 1 / -1; } }
+</style>

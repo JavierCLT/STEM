@@ -45,7 +45,7 @@ const jsonld = graph(websiteNode(), authorNode(), seriesNode(), breadcrumbNode(c
         <article class="audience" data-vol="1">
           <div class="ico"><Icon name="school" /></div>
           <h2 class="h-sub">Biography projects</h2>
-          <p>Let students choose from <a href="/people/">all {TOTALS.people} people</a>, filtered by field. Each chapter gives the dates, the big idea and a story to build a report or presentation on.</p>
+          <p>Let students choose from <a href="/people/">all {TOTALS.people} people</a>, filtered by field. Each chapter gives the dates, the big idea and a story to build a report or presentation on. Use the free <a href="/printables/">biography project worksheet</a> to structure it.</p>
         </article>
         <article class="audience" data-vol="3">
           <div class="ico"><Icon name="flask" /></div>
@@ -92,7 +92,7 @@ const jsonld = graph(websiteNode(), authorNode(), seriesNode(), breadcrumbNode(c
       <div class="section-head"><div>
         <p class="kicker">Women in STEM</p>
         <h2 id="women-title" class="h-section">{women.length} women across the series</h2>
-        <p class="lede">From a fossil hunter on the English coast to a Nobel-winning chemist in Beijing.</p>
+        <p class="lede">From a fossil hunter on the English coast to a Nobel-winning chemist in Beijing. All 26 are on the free <a href="/printables/#women-in-stem-timeline">women in STEM timeline poster</a>.</p>
       </div></div>
       <ul class="cloud">
         {women.map((p) => <li data-vol={p.vol}><a href={`${p.volUrl}#${p.slug}`}>{p.name} <span class="muted">· {p.volTitle}</span></a></li>)}

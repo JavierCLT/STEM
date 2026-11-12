@@ -12,6 +12,10 @@ Built with [Astro](https://astro.build) 7 as a fully static site (no client fram
 | `/books/` | The seven books compared |
 | `/books/<slug>/` | One page per book: who is inside, the opening of one chapter, an illustration, activities, first lines, FAQ |
 | `/people/` | All 161 people with dates and big idea, searchable and filterable |
+| `/reading-list/` | Science books for teens by subject (other authors' books, facts in `src/data/reading.ts`) |
+| `/what-to-read-after-who-was/` | Next steps for readers who have outgrown the Who Was? books |
+| `/printables/` | Free PDFs: biography project worksheet, women in STEM timeline poster |
+| `/press/` | Media kit: descriptions, facts, cover downloads, contact |
 | `/gift-guide/`, `/for-teachers/`, `/about/`, `/privacy/` | Supporting pages |
 | `/llms.txt`, `/llms-full.txt`, `/books.json` | Plain-text and JSON summaries for AI assistants and agents |
 | `/sitemap.xml`, `/robots.txt` | Crawling (all crawlers, including AI search crawlers, are allowed) |
@@ -49,6 +53,7 @@ Content and images (run locally; they need the manuscripts and cover files):
 npm run content                    # rebuild src/data/generated/volumes.json and image masters
 node scripts/make-images.mjs       # favicons and social images (uses Arial Black, as on the covers)
 node scripts/wikipedia-links.mjs   # schema.org sameAs links for every person, checked by birth year
+node scripts/make-printables.mjs   # the two printable PDFs + previews (needs Chrome or Edge)
 npm run check:excerpts             # the 10% audit, after npm run build
 node scripts/indexnow.mjs          # after a deploy: tell Bing/IndexNow the pages changed
 ```
@@ -70,3 +75,7 @@ Every push to `main` builds and deploys through `.github/workflows/deploy.yml` (
 ## Changing a store link
 
 ASINs live in `VOLUME_COPY` in `src/data/site.ts` (`asin: { paperback, kindle, hardcover }`). Add a `kindle` or `hardcover` ASIN there and the buttons, structured data, llms.txt and books.json pick it up.
+
+## Other authors' books
+
+`src/data/reading.ts` holds every outside book on the reading list and the Who Was? page, with a source URL for its ages and awards. Recheck them about once a year (ages and titles change between editions) and update `CHECKED`.

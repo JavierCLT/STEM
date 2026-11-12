@@ -24,6 +24,10 @@ export const GET: APIRoute = async () => {
     { path: '/people/', priority: '0.8' },
     { path: '/gift-guide/', priority: '0.8' },
     { path: '/for-teachers/', priority: '0.7' },
+    { path: '/reading-list/', priority: '0.8' },
+    { path: '/what-to-read-after-who-was/', priority: '0.8' },
+    { path: '/printables/', priority: '0.7' },
+    { path: '/press/', priority: '0.5' },
     { path: '/about/', priority: '0.5' },
     { path: '/privacy/', priority: '0.2' },
   );

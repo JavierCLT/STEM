@@ -31,7 +31,8 @@ export function authorNode() {
     name: SITE.author,
     url: abs('/about/'),
     jobTitle: 'Author',
-    description: 'Author of the Famous in STEM series and of other nonfiction books, including 500 Careers and Salaries and 200 Jobs Explained.',
+    description: `${SITE.authorBio} ${SITE.authorWhy}`,
+    email: `mailto:${SITE.email}`,
     sameAs: [SITE.authorStore],
   };
 }

@@ -37,6 +37,8 @@ const jsonld = graph(websiteNode(), authorNode(), seriesNode(), breadcrumbNode(c
       <p>
         {SITE.author} is the author of the Famous in STEM series and of other nonfiction books, including <em>500 Careers and Salaries</em> and <em>200 Jobs Explained</em>. Every title is listed on the <a href={SITE.authorStore} rel="external">Amazon author page</a>.
       </p>
+      <p>{SITE.authorWhy}</p>
+      <p>For review copies, interviews or classroom sets, write to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>, or see the <a href="/press/">media kit</a>.</p>
       <h2>The books</h2>
       <ul>
         {VOLUMES.map((v) => <li><a href={v.url}>Vol. {v.n}: {v.title}</a>, {v.tagline.charAt(0).toLowerCase() + v.tagline.slice(1)}</li>)}

@@ -13,6 +13,14 @@ export const SITE = {
   amazon: 'https://www.amazon.com',
   authorStore: 'https://www.amazon.com/stores/author/B0BHN7K527',
   seriesPage: 'https://www.amazon.com/dp/B0CBN56CKM',
+  email: 'jsanzbooks@gmail.com',
+  /** One line used everywhere (site, Amazon, Goodreads, press) so every source describes the series the same way. */
+  oneLine:
+    'Famous in STEM: seven short, true biography books about the scientists, inventors, doctors and engineers who shaped STEM, for readers 13 and up.',
+  authorBio:
+    'Javier Sanz is the author of the Famous in STEM series and of other nonfiction books, including 500 Careers and Salaries and 200 Jobs Explained.',
+  authorWhy:
+    'The 2026 editions were rewritten chapter by chapter for a particular first audience: Javier Sanz’s own children.',
   updated: generated.generated,
 };
 
